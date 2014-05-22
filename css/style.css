@@ -12,23 +12,22 @@
 
 html, body {
 	height: 100%;
-	width: 100%;
-
 }
 
 html {
-	background: #120D03 url(../img/forgotify-bkg.jpg) 1000px no-repeat; /* bump up bkg so body copy visible in mobile */
-	webkit-background-size: cover;
+	background: #000 url(../img/test.jpg) no-repeat center -140px fixed; /* bump up bkg so body copy visible in mobile */
+	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	width: 100%;
 }
 
 body {
 	/* Helvetica/Arial-based sans serif stack */
 	font-family: 'Open Sans', 'Montserrat', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 100%;
-	color: #120D03;
+	color: #fff;
 	-webkit-font-smoothing: antialiased;
 	margin: 0;
 	padding: 0;
