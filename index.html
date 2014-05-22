@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object#">
+	
+	<meta charset="utf-8" />
+	
+	<title>Forgotify | Discover a previously unheard Spotify track</title>
+	
+	
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta property="fb:app_id" content="414991455270398" />
+<meta property="og:title" content="Forgotify" />
+<meta property="og:description" content="4 million songs on Spotify have never been played. Not even once. We're changing that." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://forgotify.com" />
+<meta property="og:image" content="http://forgotify.com/img/forgotify-logo-share.jpg" />
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="css/style.css" />
+
+<link rel="apple-touch-icon" href="/img/forgotify-bug.png" />
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="js/clamp.min.js"></script>
+
+
+	
+</head>
+<body class="home">
+
+
+	
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=414991455270398";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<div id="outer-wrapper">
+		
+		<header id="header">
+			<div class="container">
+				<a href="./"><img src="img/forgotify-logo.png" id="logo-img" alt="Forgotify" /></a>
+				<a id="hdr-btn-nav" class="btn-nav">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<div id="hdr-nav-links" class="nav-links">
+					<a href="about.cfm">About</a>
+					<div id="fb-like" class="fb-like" data-href="http://forgotify.com" data-width="90" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+					<a href="https://twitter.com/share" id="tw-share" class="twitter-share-button" data-lang="en" data-url="http://forgotify.com" data-text="4 million songs on Spotify have never been played. Not even once. We&rsquo;re changing that." data-hashtags="forgotify" data-via="forgotify">Tweet</a>
+				</div>
+				
+			</div>
+		</header>
+		
+		<div class="container">
+
+		
+		<div id="wrapper">
+			
+			<h1>Don't forget me.</h1>
+			<h3>A huge number of videos on YouTube have never been played.<br />Not even once. Let's change that.</h3>
+			
+			<div class="controls one-button">
+				<a href="player.cfm">Start Watching</a>
+			</div>
+		
+		</div>
+			
+		</div>
+		
+		<p class="spacer">&nbsp;</p>
+		
+		<div class="push"></div>
+		
+	</div>
+
+	
+
+	<footer id="footer">
+		<div class="container">
+			<p class="copyright">&copy; 2014 Forgotify. 
+				<span class="wrap">
+					<span>Much love to <a href="http://spotify.com" target="_blank">Spotify</a>.</span>
+					<span class="social">
+						<a href="https://www.facebook.com/officialforgotify" target="_blank"><img src="/img/icon-fb.png" alt="Forgotify on Facebook" /></a>
+						<a href="https://twitter.com/forgotify" target="_blank"><img src="/img/icon-tw.png" alt="Forgotify on Twitter" /></a>
+						<a href="http://instagram.com/forgotify" target="_blank"><img src="/img/icon-inst.png" alt="Forgotify on Instagram" /></a>
+					</span>
+				</span>
+			</p>
+		</div>
+	</footer>
+
+	
+
+	<script>
+		$("#hdr-btn-nav").click(function() {
+			$("#hdr-btn-nav").toggleClass("on");
+			$("#hdr-nav-links").slideToggle(400);
+		});
+		
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-11313837-8', 'forgotify.com');
+		ga('send', 'pageview');
+		
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+	</script>
+
+</body>
+</html>
