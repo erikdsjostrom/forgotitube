@@ -10,6 +10,9 @@ def main():
 	with open("keywords.txt") as kw:
 		keywords = kw.read().splitlines()
 	return view_limit(5, keywords)
+	# url = 'https://www.youtube.com/watch?v=' + str(id)
+	# playable_url = 'mpv ' + url + ' --fs'
+	# os.system(playable_url)
 
 
 def view_limit(limit, keywords):
@@ -65,4 +68,4 @@ def get_id(searchquery):
 		pass
 
 if __name__ == '__main__':
-	print(main())
+	main()
