@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+
+	<title>Forgotitube | Discover a previously unwatched YouTube video</title>
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+<body class="home">
+
+	<div id="outer-wrapper">
+
+		<header id="header"></header>
+
+		<div id="wrapper">
+			<embed width="1024" height="720" src="http://www.youtube.com/v/{{ id }}"
+			type="application/x-shockwave-flash">
+			</embed>
+			<div class="controls one-button">
+				<a href="{{ url_for('video') }}">New Video</a>
+			</div>
+		</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
