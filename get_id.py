@@ -9,24 +9,30 @@ import re
 def main():
 	with open("keywords.txt") as kw:
 		keywords = kw.read().splitlines()
-	return view_limit(50, keywords)
+	return view_limit(5, keywords)
 	# url = 'https://www.youtube.com/watch?v=' + str(id)
 	# playable_url = 'mpv ' + url + ' --fs'
 	# os.system(playable_url)
 
 
 def view_limit(limit, keywords):
-	filter = ["How to say", "How to spell", "How to pronounce"]
-	views = 1
-	while views > 0:
+	with open("filter.txt") as fil:
+		filter = fil.read().splitlines()
+	while True:
 		randkeyword = random.choice(keywords)
 		validids = get_id(randkeyword)
-		if len(validids) == 0:
+		try:
+			if len(validids) == 0:
+				continue
+		except TypeError:
 			continue
 		tryid = random.choice(validids)
 		url = 'http://gdata.youtube.com/feeds/api/videos/' + tryid
-		title, views = test_connection(url)
-		if title is None or title == []:
+		try:
+			title, views = test_connection(url)
+		except TypeError:
+			continue
+		if title is None or title == [] or views is None or views == []:
 			continue
 		elif any(f.lower() in title[0].lower() for f in filter):
 			continue
@@ -42,6 +48,7 @@ def test_connection(url):
 		viewpatt = re.compile("viewCount='(.*?)'/>")
 		title = titlepatt.findall(sock)
 		views = viewpatt.findall(sock)
+		print(title, views)
 		if views == [] or views is None:
 			return(title, 0)
 		else:
