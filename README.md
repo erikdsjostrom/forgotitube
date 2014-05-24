@@ -11,7 +11,7 @@ TODO
 ----
 
 - Make the options and advanced options work.
-- Randomize the background image
+- <del>Randomize the background image</del>
 - Randomize the text in `templates/index.html`
 - New favicon
 
