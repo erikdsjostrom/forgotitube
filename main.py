@@ -52,6 +52,7 @@ with app.test_request_context():
 
 if __name__ == '__main__':
 	# HEY! DEBUG IS TURNED ON REMEMBER TO TURN IT OFF WHEN YOU LEAVE!!!
+	# Lol
 	app.debug = True
 	#DON'T YOU DARE FORGET IT
 	app.run()
