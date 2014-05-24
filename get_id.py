@@ -37,6 +37,7 @@ class Video():
 		except Exception:
 			pass
 
+
 def get_random_id(searchquery):
 		gdataurl = "http://gdata.youtube.com/feeds/api/videos?q=" + searchquery + "&orderby=published"
 		try:

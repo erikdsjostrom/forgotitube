@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" style="background: #000 url(../static/img/6.jpg) ">
+<html lang="en" style="background: #000 url(../static/img/6.jpg) no-repeat center -140px fixed;
+-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; 
+background-size: cover; background-position-y: center;">
 <head>
 	
 	<meta charset="utf-8" />
@@ -12,19 +14,13 @@
 <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
 </head>
 <body class="home">
-	
-	<div id="outer-wrapper">
-		
-		<header id="header"></header>
 		
 		<div id="wrapper">
 			
 			<h1>Don't forget me.</h1>
 			<h3>A huge number of videos on YouTube have never been played.<br />Not even once. Let's change that.</h3>
-			
-			<div class="controls one-button">
-				<a href="{{ url_for('video') }}">Start Watching</a>
-			</div>
+			<br />
+			<input id="submitbutton" type="submit" value="Start Watching" />
 		
 		</div>
 
@@ -36,7 +32,6 @@
 			    <br />
 			    <label> Search query: <input type="text" name="query" placeholder="Default: random word" /> </label>
 			    <br />
-			    <label> Submit <input type="submit" value="Submit!" /> </label>
 			</form>
 			<div id ="advoptions">
 			 	<details>
@@ -70,11 +65,9 @@
 				    <label> Likes lower limit: <input type="text" name="lolikes" placeholder="Default: 0" /> </label> <br />
 				    <label> Dislikes upper limit: <input type="text" name="updislikes" placeholder="Default: ∞" /> </label> <br />
 				    <label> Dislikes lower limit: <input type="text" name="lodislikes" placeholder="Default: 0" /> </label> <br />
-			    	<label> Submit <input type="submit" value="Submit!" /> </label>
 			 	</form>
 			 	</details>
 			</div>
-		</div>
 	</div>
 
 </body>

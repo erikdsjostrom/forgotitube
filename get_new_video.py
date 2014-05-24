@@ -17,7 +17,7 @@ def get_new_video():
 				vid = Video(tryid, info)
 				title = vid.title
 				views = vid.viewcount
-				vid.show_info()  # Ta bort denna rad för att sluta printa
+				#vid.show_info()  # Ta bort denna rad för att sluta printa
 			except TypeError:
 				continue
 			if title is None or title == [] or views is None or views == []:
@@ -29,5 +29,5 @@ def get_new_video():
 
 	with open("keywords.txt") as kw:
 		keywords = kw.read().splitlines()
-	return view_limit(50, keywords)
-get_new_video()
+	return view_limit(200, keywords)
+# get_new_video()
