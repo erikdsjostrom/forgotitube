@@ -17,7 +17,7 @@ def get_new_video():
 				vid = Video(tryid, info)
 				title = vid.title
 				views = vid.viewcount
-				#vid.show_info()  # Ta bort denna rad för att sluta printa
+				#vid.show_info()  # Kommentera denna rad för att sluta printa
 			except TypeError:
 				continue
 			if title is None or title == [] or views is None or views == []:
