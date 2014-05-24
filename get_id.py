@@ -58,4 +58,4 @@ def get_new_video():
 
 	with open("keywords.txt") as kw:
 		keywords = kw.read().splitlines()
-	return view_limit(5, keywords)
+	return view_limit(50, keywords)
