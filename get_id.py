@@ -5,57 +5,58 @@ import urllib.request
 import re
 
 
-def get_new_video():
+class Video():
+	def __init__(self, id, list):
+		self.id = id
+		self.viewcount = int(list[0])
+		self.title = list[1]
+		self.duration = int(list[2])
+		self.likes = int(list[3])
+		self.dislikes = int(list[4])
+		self.rating = float(list[5])
+		self.category = list[6]
 
-	def view_limit(limit, keywords):
-		with open("filter.txt") as fil:
-			filter = fil.read().splitlines()
-		while True:
-			randkeyword = random.choice(keywords)
-			validids = get_id(randkeyword)
-			try:
-				if len(validids) == 0:
-					continue
-			except TypeError:
-				continue
-			tryid = random.choice(validids)
-			url = 'http://gdata.youtube.com/feeds/api/videos/' + tryid
-			try:
-				title, views = test_connection(url)
-			except TypeError:
-				continue
-			if title is None or title == [] or views is None or views == []:
-				continue
-			elif any(f.lower() in title[0].lower() for f in filter):
-				continue
-			elif views < limit:
-				return tryid
+	def show_info(self):
+		print([self.id, self.viewcount, self.title,
+								self.duration, self.likes,
+								self.dislikes, self.rating,
+								self.category])
 
-	# Tries connection and returns view count (if the id is valid)
-	def test_connection(url):
+
+def get_random_id(searchquery):
+		gdataurl = "http://gdata.youtube.com/feeds/api/videos?q=" + searchquery + "&orderby=published"
 		try:
-			sock = urllib.request.urlopen(url).read().decode("utf-8")
-			titlepatt = re.compile("<title[^>]*>(.*?)</title>")
-			viewpatt = re.compile("viewCount='(.*?)'/>")
-			title = titlepatt.findall(sock)
-			views = viewpatt.findall(sock)
-			if views == [] or views is None:
-				return(title, 0)
-			else:
-				return(title, int(views[0]))
-		except Exception:
-			pass
-
-	def get_id(searchquery):
-		gdataurl = "http://gdata.youtube.com/feeds/api/videos?q="
-		try:
-			sock = urllib.request.urlopen(gdataurl + searchquery).read().decode("utf-8")
-			idatt = re.compile("/v/(.*?)\?")
+			sock = urllib.request.urlopen(gdataurl).read().decode("utf-8")
+			idatt = re.compile("url='http://www.youtube.com/v/(.*?)\?")
 			foundid = idatt.findall(sock)
-			return foundid
+			return random.choice(foundid)
 		except Exception:
 			pass
 
-	with open("keywords.txt") as kw:
-		keywords = kw.read().splitlines()
-	return view_limit(5, keywords)
+
+# get_info takes an id and returns a list with the following things
+# 0: view count, 1: title, 2: duration (sec),
+# 3: likes, 4: dislikes, 5: category
+def get_info(id):
+	url = "https://gdata.youtube.com/feeds/api/videos/" + str(id) + "?v=2"
+	try:
+		sock = urllib.request.urlopen(url).read().decode("utf-8")
+		vc = re.compile("viewCount='(.*?)\'")
+		dur = re.compile("duration='(.*?)\'")
+		numlik = re.compile("numLikes='(.*?)\'")
+		numdislik = re.compile("numDislikes='(.*?)\'")
+		cat = re.compile("category label='(.*?)\'")
+		title = re.compile("<title>(.*?)</title>")
+		rat = re.compile("rating average='(.*?)\'")
+		data = [""]*7
+		data[0] = str(vc.findall(sock)[0])
+		data[1] = str(title.findall(sock)[0])
+		data[2] = str(dur.findall(sock)[0])
+		data[3] = str(numlik.findall(sock)[0])
+		data[4] = str(numdislik.findall(sock)[0])
+		data[5] = str(rat.findall(sock)[0])
+		data[6] = str(cat.findall(sock)[0])
+		return data
+
+	except Exception:
+		pass
