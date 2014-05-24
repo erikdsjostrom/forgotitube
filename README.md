@@ -7,6 +7,14 @@ A Flask based web application for finding YouTube videos with as few views as po
 Erik Sjöström, metallicgeek@gmail.com 
 Johan Asplund, johan.asplund@math.uu.se
 
+TODO
+----
+
+- Make the options and advanced options work.
+- Randomize the background image
+- Randomize the text in `template/index.html`
+- New favicon
+
 
 LICENSE
 -------
