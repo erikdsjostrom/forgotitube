@@ -22,21 +22,6 @@ class Video():
 								self.dislikes, self.rating,
 								self.category])
 
-	# Tries connection and returns view count (if the id is valid)
-	def test_connection(url):
-		try:
-			sock = urllib.request.urlopen(url).read().decode("utf-8")
-			titlepatt = re.compile("<title[^>]*>(.*?)</title>")
-			viewpatt = re.compile("viewCount='(.*?)'/>")
-			title = titlepatt.findall(sock)
-			views = viewpatt.findall(sock)
-			if views == [] or views is None:
-				return(title, 0)
-			else:
-				return(title, int(views[0]))
-		except Exception:
-			pass
-
 
 def get_random_id(searchquery):
 		gdataurl = "http://gdata.youtube.com/feeds/api/videos?q=" + searchquery + "&orderby=published"
