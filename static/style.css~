@@ -1,5 +1,5 @@
 html {
-	background: #000 url(../static/img/5.jpg) no-repeat center -140px fixed; /* bump up bkg so body copy visible in mobile */
+	background: #000 url(../static/test.jpg) no-repeat center -140px fixed; /* bump up bkg so body copy visible in mobile */
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
