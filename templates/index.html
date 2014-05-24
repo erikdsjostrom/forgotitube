@@ -1,31 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+	
 	<meta charset="utf-8" />
-
+	
 	<title>Forgotitube | Discover a previously unwatched YouTube video</title>
 
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
 </head>
 <body class="home">
-
+	
 	<div id="outer-wrapper">
-
+		
 		<header id="header"></header>
-
+		
 		<div id="wrapper">
-
+			
 			<h1>Don't forget me.</h1>
 			<h3>A huge number of videos on YouTube have never been played.<br />Not even once. Let's change that.</h3>
-
+			
 			<div class="controls one-button">
 				<a href="{{ url_for('video') }}">Start Watching</a>
 			</div>
+		
+		</div>
 
+		<div id ="options">
+			<h2>Options</h2>
+			<hr />
+			<fieldset>
+			    <label> View limit: <input type="text" name="limit" placeholder="Default: 50" /> </label>
+			    <br />
+			    <label> Search query: <input type="text" name="query" placeholder="Default: random word" /> </label>
+			</fieldset>
+			<div id ="advoptions">
+			 	<details>
+			 	<summary>Advanced options <hr style="background:#c0c0c0; border:0; height:1px" /></summary>
+			 	<fieldset>
+				    <label> Duration upper limit (sec): <input type="text" name="upduration" placeholder="Default: ∞" /> </label>
+				    <br />
+				    <label> Duration lower limit (sec): <input type="text" name="loduration" placeholder="Default: 0" /> </label>
+				    <br />
+				    <label> Category: 
+				    <select autofocus="any">
+				      <option value="any">Any category</option>
+				      <option value="com">Comedy</option>
+				      <option value="peo">People</option>
+				      <option value="mus">Music</option>
+				    </select>
+				    </label> <br />
+				    <label> Average rating upper limit: <input type="text" name="uprating" placeholder="Default: 5" /> </label> <br />
+				    <label> Average rating lower limit: <input type="text" name="lorating" placeholder="Default: 0" /> </label> <br />
+				    <label> Likes upper limit: <input type="text" name="uplikes" placeholder="Default: ∞" /> </label> <br />
+				    <label> Likes lower limit: <input type="text" name="lolikes" placeholder="Default: 0" /> </label> <br />
+				    <label> Dislikes upper limit: <input type="text" name="updislikes" placeholder="Default: ∞" /> </label> <br />
+				    <label> Dislikes lower limit: <input type="text" name="lodislikes" placeholder="Default: 0" /> </label>
+			 	</fieldset>
+			 	</details>
+			</div>
 		</div>
 	</div>
 

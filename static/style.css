@@ -50,6 +50,12 @@ h3 {
 	font-weight: 300;
 }
 
+h2 {
+	font-weight: 400;
+	padding-bottom: -5px;
+	margin-bottom: -5px;
+}
+
 .controls.one-button{
 	margin-top: 40px;
 	text-align: center;
@@ -88,7 +94,6 @@ header {
 	background-image: linear-gradient(to bottom,#e52d27 0,#b31217 100%);
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffacd341',endColorstr='#ff88bd32',GradientType=0);
-	background-color: #88bd32;
 	text-shadow: 0 -1px 0 #72942a;
 	display: inline-block;
 	text-align: center;
@@ -107,3 +112,43 @@ header {
 	padding: 0.75em 1.875em;
 	float: none;
 }
+#options {
+	float: auto;
+	text-align: left; 
+	width:50%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#advoptions {
+	float: auto;
+	text-align: left; 
+	width:100%;
+}
+input,select,option {
+    border: none;
+    background: #c0c0c0;
+    color: #505050;
+    outline: none;
+}
+
+::-webkit-input-placeholder
+{
+  color: #707070;
+}
+label{
+	padding-left: 10px;
+	align: char;
+}
+fieldset{
+	border: none;
+	text-align: ":";
+}
+summary{
+	outline: none;
+}
+
+
+
+
+
