@@ -17,10 +17,20 @@ class Video():
 		self.category = list[6]
 
 	def show_info(self):
+<<<<<<< HEAD
+		try:
+			print([self.id, self.viewcount, self.title,
+										self.duration, self.likes,
+										self.dislikes, self.rating,
+										self.category])
+		except Exception:
+			pass
+=======
 		print([self.id, self.viewcount, self.title,
 								self.duration, self.likes,
 								self.dislikes, self.rating,
 								self.category])
+>>>>>>> upstream/master
 
 
 def get_random_id(searchquery):
@@ -36,7 +46,7 @@ def get_random_id(searchquery):
 
 # get_info takes an id and returns a list with the following things
 # 0: view count, 1: title, 2: duration (sec),
-# 3: likes, 4: dislikes, 5: category
+# 3: likes, 4: dislikes, 5: avg. rating, 6: category
 def get_info(id):
 	url = "https://gdata.youtube.com/feeds/api/videos/" + str(id) + "?v=2"
 	try:
