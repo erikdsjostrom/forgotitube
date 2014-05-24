@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import url_for
 from flask import render_template
-from get_id import get_new_video
+from get_new_video import get_new_video
 
 app = Flask(__name__)
 
