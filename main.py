@@ -47,9 +47,12 @@ def index():
 def video():
 	#id = get_new_video() TAKE NOTE
 	limit = request.form['limit']
+	if not limit:
+		limit = 'Default: 50'
 	query = request.form['query']
+	if not query:
+		query = 'Defaut: random word'
 	id = 'ay-FQAafeR0'
-	print('lol')
 	return render_template('video.html', id=id, limit=limit, query=query)
 
 with app.test_request_context():

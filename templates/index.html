@@ -20,18 +20,19 @@ background-size: cover; background-position-y: center;">
 			<h1>Don't forget me.</h1>
 			<h3>A huge number of videos on YouTube have never been played.<br />Not even once. Let's change that.</h3>
 			<br />
-			<input id="submitbutton" onClick="location.href='../video'" type="submit" value="Start Watching" />
+			<input id="submitbutton" onClick="location.href='../video'" type="submit" form="lolform" value="Start Watching" />
 		
 		</div>
 
 		<div id ="options">
 			<h2>Options</h2>
 			<hr />
-			<form action="/video" method="POST">
+			<form id="lolform" action="/video" method="POST">
 			    <label> View limit: <input type="text" name="limit" placeholder="Default: 50" /> </label>
 			    <br />
 			    <label> Search query: <input type="text" name="query" placeholder="Default: random word" /> </label>
 			    <br />
+			    <input id="submitbutton" onClick="location.href='../video'" type="submit" value="Start Watching" />
 			</form>
 			<div id ="advoptions">
 			 	<details>
