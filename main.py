@@ -14,36 +14,43 @@ def index():
 	return render_template('index.html')
 
 
+# @app.route('/video', methods=['POST'])
+# def settings():
+# 	limit = request.form['limit']
+# 	query = request.form['query']
+# 	print(limit)
+# 	print(lol)
+# 	# upduration = request.form['upduration']
+# 	# loduration = request.form['loduration']
+# 	# category = request.form['category']
+# 	# uprating = request.form['uprating']
+# 	# lorating = request.form['lorating']
+# 	# uplikes = request.form['uplikes']
+# 	# lolikes = request.form['lolikes']
+# 	# updislikes = request.form['updislikes']
+# 	# lodislikes = request.form['lodislikes']
+# 	# id = get_new_video()  TAKE NOTE
+# 	id = 'ay-FQAafeR0'
+# 	return render_template('video.html', id=id, limit=limit, query=query)
+# 															# upduration=upduration,
+# 															# loduration=loduration,
+# 															# category=category,
+# 															# uprating=uprating,
+# 															# lorating=lorating,
+# 															# uplikes=uplikes,
+# 															# lolikes=lolikes,
+# 															# updislikes=updislikes,
+# 															# lodislikes=lodislikes)
+
+
 @app.route('/video', methods=['POST'])
-def settings():
-	limt = request.form['limit']
-	query = request.form['query']
-	# upduration = request.form['upduration']
-	# loduration = request.form['loduration']
-	# category = request.form['category']
-	# uprating = request.form['uprating']
-	# lorating = request.form['lorating']
-	# uplikes = request.form['uplikes']
-	# lolikes = request.form['lolikes']
-	# updislikes = request.form['updislikes']
-	# lodislikes = request.form['lodislikes']
-	id = get_new_video()
-	return render_template('video.html', id=id, limit=limt, query=query)
-															# upduration=upduration,
-															# loduration=loduration,
-															# category=category,
-															# uprating=uprating,
-															# lorating=lorating,
-															# uplikes=uplikes,
-															# lolikes=lolikes,
-															# updislikes=updislikes,
-															# lodislikes=lodislikes)
-
-
-@app.route('/video')
 def video():
-	id = get_new_video()
-	return render_template('video.html', id=id)
+	#id = get_new_video() TAKE NOTE
+	limit = request.form['limit']
+	query = request.form['query']
+	id = 'ay-FQAafeR0'
+	print('lol')
+	return render_template('video.html', id=id, limit=limit, query=query)
 
 with app.test_request_context():
 	print(url_for('index'))
