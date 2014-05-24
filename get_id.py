@@ -17,23 +17,11 @@ class Video():
 		self.category = list[6]
 
 	def show_info(self):
-		print([self.id, self.viewcount, self.title,
-								self.duration, self.likes,
-								self.dislikes, self.rating,
-								self.category])
-
-	# Tries connection and returns view count (if the id is valid)
-	def test_connection(url):
 		try:
-			sock = urllib.request.urlopen(url).read().decode("utf-8")
-			titlepatt = re.compile("<title[^>]*>(.*?)</title>")
-			viewpatt = re.compile("viewCount='(.*?)'/>")
-			title = titlepatt.findall(sock)
-			views = viewpatt.findall(sock)
-			if views == [] or views is None:
-				return(title, 0)
-			else:
-				return(title, int(views[0]))
+			print([self.id, self.viewcount, self.title,
+										self.duration, self.likes,
+										self.dislikes, self.rating,
+										self.category])
 		except Exception:
 			pass
 
@@ -51,7 +39,7 @@ def get_random_id(searchquery):
 
 # get_info takes an id and returns a list with the following things
 # 0: view count, 1: title, 2: duration (sec),
-# 3: likes, 4: dislikes, 5: category
+# 3: likes, 4: dislikes, 5: avg. rating, 6: category
 def get_info(id):
 	url = "https://gdata.youtube.com/feeds/api/videos/" + str(id) + "?v=2"
 	try:
