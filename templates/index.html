@@ -36,13 +36,13 @@ background-size: cover; background-position-y: center;">
 			<div id ="advoptions">
 			 	<details>
 			 	<summary>Advanced options <hr style="background:#c0c0c0; border:0; height:1px" /></summary>
-			 	<form action="/video" method="POST">
+			 	<form id="settings-form" action="/video" method="POST">
 				    <label> Duration upper limit (sec): <input type="text" name="upduration" placeholder="Default: ∞" /> </label>
 				    <br />
 				    <label> Duration lower limit (sec): <input type="text" name="loduration" placeholder="Default: 0" /> </label>
 				    <br />
 				    <label> Category: 
-				    <select name="category" autofocus="any">
+				    <select name="category" name="category" autofocus="any">
 				      <option value="any">Any category</option>
 				      <option value="Autos &amp; Vehicles">Autos &amp; Vehicles</option>
 				      <option value="Comedy">Comedy</option>

@@ -11,6 +11,30 @@ with open("filter.txt") as fil:
 with open("keywords.txt") as kw:
 	keywords = kw.read().splitlines()
 
+<<<<<<< HEAD
+=======
+def get_new_video():
+	def view_limit(limit, keywords):
+		with open("filter.txt") as fil:
+			filter = fil.read().splitlines()
+		while True:
+			randkeyword = random.choice(keywords)
+			tryid = get_random_id(randkeyword)
+			try:
+				info = get_info(tryid)
+				vid = Video(tryid, info)
+				title = vid.title
+				views = vid.viewcount
+				#vid.show_info()  # Kommentera denna rad för att sluta printa
+			except TypeError:
+				continue
+			if title is None or title == [] or views is None or views == []:
+				continue
+			elif any(f.lower() in title[0].lower() for f in filter):
+				continue
+			elif views < limit:
+				return tryid
+>>>>>>> upstream/master
 
 # user_data är en lista med följande data:
 # NOTERA ATT ALLT ÄR STRÄNGAR
