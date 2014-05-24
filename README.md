@@ -12,7 +12,7 @@ TODO
 
 - Make the options and advanced options work.
 - Randomize the background image
-- Randomize the text in `template/index.html`
+- Randomize the text in `templates/index.html`
 - New favicon
 
 
