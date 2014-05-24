@@ -10,37 +10,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+	global limit
+	global query
 	#img = rotate_background.py
 	return render_template('index.html')
-
-
-# @app.route('/video', methods=['POST'])
-# def settings():
-# 	limit = request.form['limit']
-# 	query = request.form['query']
-# 	print(limit)
-# 	print(lol)
-# 	# upduration = request.form['upduration']
-# 	# loduration = request.form['loduration']
-# 	# category = request.form['category']
-# 	# uprating = request.form['uprating']
-# 	# lorating = request.form['lorating']
-# 	# uplikes = request.form['uplikes']
-# 	# lolikes = request.form['lolikes']
-# 	# updislikes = request.form['updislikes']
-# 	# lodislikes = request.form['lodislikes']
-# 	# id = get_new_video()  TAKE NOTE
-# 	id = 'ay-FQAafeR0'
-# 	return render_template('video.html', id=id, limit=limit, query=query)
-# 															# upduration=upduration,
-# 															# loduration=loduration,
-# 															# category=category,
-# 															# uprating=uprating,
-# 															# lorating=lorating,
-# 															# uplikes=uplikes,
-# 															# lolikes=lolikes,
-# 															# updislikes=updislikes,
-# 															# lodislikes=lodislikes)
 
 
 @app.route('/video', methods=['POST'])

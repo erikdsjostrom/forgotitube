@@ -19,17 +19,17 @@ background-size: cover; background-position-y: center;">
 		
 			<iframe width="500" height="281" src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
 			<br />
-			<input id="submitbutton" type="submit" value="New Video" />
+			<input id="submitbutton" onClick="location.href='../video'" type="submit" form="settings-form" value="New Video" />
 		</div>
 		
 		<div id ="options">
 			<h2>Options</h2>
 			<hr />
-			<fieldset>
+			<form id="settings-form" action="/video" method="POST">
 			    <label> View limit: <input type="text" name="limit" placeholder="{{ limit }}" /> </label>
 			    <br />
 			    <label> Search query: <input type="text" name="query" placeholder="{{ query }}" /> </label>
-			</fieldset>
+			</form>
 			<div id ="advoptions">
 			 	<details>
 			 	<summary>Advanced options <hr style="background:#c0c0c0; border:0; height:1px" /></summary>
