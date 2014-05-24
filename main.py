@@ -7,26 +7,34 @@ from get_new_video import get_new_video
 
 app = Flask(__name__)
 
+global glimit
+glimit = 'Default: 50'
+global gquery
+gquery = 'Default: random word'
 
 @app.route('/')
 def index():
-	global limit
-	global query
+	# global glimit
+	# glimit = 'Default: 50'
+	# global gquery
+	# gquery = 'Default: random word'
 	#img = rotate_background.py
 	return render_template('index.html')
 
 
 @app.route('/video', methods=['POST'])
 def video():
+	global glimit
+	global gquery
 	#id = get_new_video() TAKE NOTE
 	limit = request.form['limit']
-	if not limit:
-		limit = 'Default: 50'
+	if limit and limit != glimit:
+		glimit = limit
 	query = request.form['query']
-	if not query:
-		query = 'Defaut: random word'
+	if query and query != gquery:
+		gquery = query
 	id = 'ay-FQAafeR0'
-	return render_template('video.html', id=id, limit=limit, query=query)
+	return render_template('video.html', id=id, limit=glimit, query=gquery)
 
 with app.test_request_context():
 	print(url_for('index'))
