@@ -14,6 +14,7 @@ TODO
 - <del>Randomize the background image</del>
 - Randomize the text in `templates/index.html`
 - New favicon
+- Optimize the algorithm
 
 
 LICENSE

@@ -12,19 +12,18 @@ with open("keywords.txt") as kw:
 	keywords = kw.read().splitlines()
 
 
-# usr_data är en lista med följande data:
-# NOTERA ATT ALLT ÄR STRÄNGAR
-# 0: view count limit
-# 1: search query
-# 2: duration upper limit
-# 3: duration lower limit
-# 4: category
-# 5: avg rating upper limit
-# 6: avg rating lower limit
-# 7: likes upper limit
-# 8: likes lower limit
-# 9: dislikes upper limit
-# 10: dislikes lower limit
+# usr_data är en lista med följande data inkl. datatyper
+# 0: view count limit 		(int)
+# 1: search query 			(string)
+# 2: duration upper limit 	(int)
+# 3: duration lower limit 	(int)
+# 4: category 				(string)
+# 5: avg rating upper limit (float)
+# 6: avg rating lower limit (float)
+# 7: likes upper limit 		(int)
+# 8: likes lower limit 		(int)
+# 9: dislikes upper limit 	(int)
+# 10: dislikes lower limit 	(int)
 def get_new_video(usr_data):
 	while True:
 		# Added a try/except for safety, when assigning stuff to avoid crashes.
@@ -40,41 +39,35 @@ def get_new_video(usr_data):
 		except Exception:
 			continue
 		# Setting remaining values to default if they are empty strings
-		# 0: view count limit
+		# 0: view count limit (int)
 		if not usr_data[0]:
 			usr_data[0] = 50
-		else:
-			usr_data[0] = int(usr_data[0])
-		# 2: duration upper limit
+		# 2: duration upper limit (int)
 		if not usr_data[2]:
 			usr_data[2] = float("inf")
-		# 3: duration lower limit
+		# 3: duration lower limit (int)
 		if not usr_data[3]:
 			usr_data[3] = 0
-		# 4: category
+		# 4: category (string)
 		if usr_data[4] != "any":
 			# Replaces & with &amp; to match the get_info which takes strings from html
 			usr_data[4] = usr_data[4].replace("&", "&amp;")
-		# 5: avg rating upper limit
+		# 5: avg rating upper limit (float)
 		if not usr_data[5]:
 			usr_data[5] = float("inf")
-		# 6: avg rating lower limit
+		# 6: avg rating lower limit (float)
 		if not usr_data[6]:
 			usr_data[6] = 0
-		else:
-			usr_data[6] = int(usr_data[6])
-		# 7: likes upper limit
+		# 7: likes upper limit (int)
 		if not usr_data[7]:
 			usr_data[7] = float("inf")
-		# 8: likes lower limit
+		# 8: likes lower limit (int)
 		if not usr_data[8]:
 			usr_data[8] = 0
-		else:
-			usr_data[8] = int(usr_data[8])
-		# 9: dislikes upper limit
+		# 9: dislikes upper limit (int)
 		if not usr_data[9]:
 			usr_data[9] = float("inf")
-		# 10: dislikes lower limit
+		# 10: dislikes lower limit (int)
 		if not usr_data[10]:
 			usr_data[10] = 0
 
@@ -87,7 +80,7 @@ def get_new_video(usr_data):
 			continue
 		elif vid.viewcount > usr_data[0]:
 			continue
-		elif not (usr_data[3] <= vid.duration <= usr_data[2]):
+		elif not usr_data[3] <= vid.duration <= usr_data[2]:
 			# Did not match duration limits
 			continue
 		elif usr_data[4] != "any" and usr_data[4] != vid.category:

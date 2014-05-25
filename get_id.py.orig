@@ -17,12 +17,20 @@ class Video():
 		self.category = list[6]
 
 	def show_info(self):
-
+<<<<<<< HEAD
+		try:
+			print([self.id, self.viewcount, self.title,
+										self.duration, self.likes,
+										self.dislikes, self.rating,
+										self.category])
+		except Exception:
+			pass
+=======
+>>>>>>> 4fedd191d031a4c39619be650072a06c7aa63ec1
 		print([self.id, self.viewcount, self.title,
 								self.duration, self.likes,
 								self.dislikes, self.rating,
 								self.category])
-
 
 
 def get_random_id(searchquery):
