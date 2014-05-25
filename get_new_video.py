@@ -36,7 +36,8 @@ def get_new_video(usr_data):
 				# Use the query input
 				queryid = get_random_id(usr_data[1])
 				vid = Video(queryid, get_info(queryid))
-		except Exception:
+		except Exception as e:
+			print(e)
 			continue
 		# Setting remaining values to default if they are empty strings
 		# 0: view count limit (int)
