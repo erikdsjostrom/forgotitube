@@ -71,7 +71,7 @@ def video():
 		# user_data = [user_data[0], user_data[1], user_data[2],
 		# 	user_data[3], user_data[4], user_data[5], user_data[6],
 		# 	user_data[7], user_data[8], user_data[9], user_data[10]]
-		user_data = [10000] + ['erik'] + [10000000] + [0] + ["any"]
+		user_data = [50] + ['jättekuk'] + [10000000] + [0] + ["any"]
 		print(user_data[0])
 		id = get_new_video(user_data)  # Sparar tid om kommenterad
 		return render_template('video.html', id=id, img=img,

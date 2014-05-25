@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import random
 import urllib
 import urllib.request
@@ -22,7 +23,7 @@ class Video():
 def get_random_id(searchquery):
 		gdataurl = "http://gdata.youtube.com/feeds/api/videos?q=" + searchquery + "&orderby=published"
 		try:
-			sock = urllib.request.urlopen(gdataurl).read().decode("utf-8")
+			sock = urllib.request.urlopen(gdataurl).read()  # .decode("utf-8")
 			idatt = re.compile("/watch\?v=(.*?)&")
 			foundid = idatt.findall(sock)
 			return random.choice(foundid)
@@ -37,7 +38,7 @@ def get_random_id(searchquery):
 def get_info(id):
 	url = "https://gdata.youtube.com/feeds/api/videos/" + str(id) + "?v=2"
 	try:
-		sock = urllib.request.urlopen(url).read().decode("utf-8")
+		sock = urllib.request.urlopen(url).read()  # .decode("utf-8")
 		vc = re.compile("viewCount='(.*?)\'")
 		dur = re.compile("duration='(.*?)\'")
 		cat = re.compile("category label='(.*?)\'")
