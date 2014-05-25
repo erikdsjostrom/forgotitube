@@ -81,10 +81,11 @@ h2 {
 
 #options {
 	background: rgba(16,16,16,0.5);
-	float: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: left; 
-	width:25%;
-	margin-left: 37%;
+	width:30%;
 	margin-top: 5px;
 	padding: 0px 10px 5px 10px;
 }
@@ -99,6 +100,7 @@ input,select,option {
     background: #c0c0c0;
     color: #505050;
     outline: none;
+    width: 20%;
 }
 
 ::-webkit-input-placeholder {
