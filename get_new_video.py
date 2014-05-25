@@ -18,12 +18,6 @@ with open("keywords.txt") as kw:
 # 2: duration upper limit 	(int)
 # 3: duration lower limit 	(int)
 # 4: category 				(string)
-# 5: avg rating upper limit (float)
-# 6: avg rating lower limit (float)
-# 7: likes upper limit 		(int)
-# 8: likes lower limit 		(int)
-# 9: dislikes upper limit 	(int)
-# 10: dislikes lower limit 	(int)
 def get_new_video(usr_data):
 	while True:
 		# Added a try/except for safety, when assigning stuff to avoid crashes.
@@ -37,6 +31,7 @@ def get_new_video(usr_data):
 				queryid = get_random_id(usr_data[1])
 				vid = Video(queryid, get_info(queryid))
 		except Exception as e:
+			print("get_new_video error:")
 			print(e)
 			continue
 		# Setting remaining values to default if they are empty strings
@@ -53,24 +48,6 @@ def get_new_video(usr_data):
 		if usr_data[4] != "any":
 			# Replaces & with &amp; to match the get_info which takes strings from html
 			usr_data[4] = usr_data[4].replace("&", "&amp;")
-		# 5: avg rating upper limit (float)
-		if not usr_data[5]:
-			usr_data[5] = float("inf")
-		# 6: avg rating lower limit (float)
-		if not usr_data[6]:
-			usr_data[6] = 0
-		# 7: likes upper limit (int)
-		if not usr_data[7]:
-			usr_data[7] = float("inf")
-		# 8: likes lower limit (int)
-		if not usr_data[8]:
-			usr_data[8] = 0
-		# 9: dislikes upper limit (int)
-		if not usr_data[9]:
-			usr_data[9] = float("inf")
-		# 10: dislikes lower limit (int)
-		if not usr_data[10]:
-			usr_data[10] = 0
 
 		# Debugging
 		# vid.show_info()
@@ -85,15 +62,8 @@ def get_new_video(usr_data):
 			# Did not match duration limits
 			continue
 		elif usr_data[4] != "any" and usr_data[4] != vid.category:
-			print(usr_data[4])
-			continue
-		elif not usr_data[6] <= vid.rating <= usr_data[5]:
-			continue
-		elif not usr_data[8] <= vid.likes <= usr_data[7]:
-			continue
-		elif not usr_data[10] <= vid.dislikes <= usr_data[9]:
 			continue
 		# The id passed the filtering
 		return vid.id
 # This is for testing with default inputs
-# print(get_new_video([""]*4 + ["any"] + [""]*6))
+#print(get_new_video([""]*4 + ["any"] + [""]*6))
