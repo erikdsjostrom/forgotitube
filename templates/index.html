@@ -14,7 +14,7 @@ background-size: cover; background-position-y: center;">
 <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
 </head>
 <body class="home">
-		
+
 		<div id="wrapper">
 			
 			<h1>Don't forget me.</h1>
@@ -23,52 +23,6 @@ background-size: cover; background-position-y: center;">
 			<input id="submitbutton" onClick="location.href='../video'" type="submit" form="settings-form" value="Start Watching" />
 		
 		</div>
-
-		<div id ="options">
-			<h2>Options</h2>
-			<hr />
-			<form id="settings-form" action="/video" method="POST">
-			    <label> View limit: <input type="text" name="limit" placeholder="Default: 50" /> </label>
-			    <br />
-			    <label> Search query: <input type="text" name="query" placeholder="Default: random word" /> </label>
-			    <br />
-			</form>
-			<div id ="advoptions">
-			 	<details>
-			 	<summary>Advanced options <hr style="background:#c0c0c0; border:0; height:1px" /></summary>
-			 	<form action="/video" method="POST">
-				    <label> Duration upper limit (sec): <input type="text" name="upduration" placeholder="Default: ∞" /> </label>
-				    <br />
-				    <label> Duration lower limit (sec): <input type="text" name="loduration" placeholder="Default: 0" /> </label>
-				    <br />
-				    <label> Category: 
-				    <select name="category" autofocus="any">
-				      <option value="any">Any category</option>
-				      <option value="Autos &amp; Vehicles">Autos &amp; Vehicles</option>
-				      <option value="Comedy">Comedy</option>
-				      <option value="Education">Education</option>
-				      <option value="Entertainment">Entertainment</option>
-				      <option value="Film &amp; Animation">Film &amp; Animation</option>
-				      <option value="Howto &amp; Style">Howto &amp; Style</option>
-				      <option value="Music">Music</option>
-				      <option value="News &amp; Politics">News &amp; Politics</option>
-				      <option value="People &amp; Blogs">People &amp; Blogs</option>
-				      <option value="Pets &amp; Animals">Pets &amp; Animals</option>
-				      <option value="Science &amp; Technology">Science &amp; Technology</option>
-				      <option value="Sports">Sports</option>
-				      <option value="Travel &amp; Events">Travel &amp; Events</option>
-				    </select>
-				    </label> <br />
-				    <label> Average rating upper limit: <input type="text" name="uprating" placeholder="Default: 5" /> </label> <br />
-				    <label> Average rating lower limit: <input type="text" name="lorating" placeholder="Default: 0" /> </label> <br />
-				    <label> Likes upper limit: <input type="text" name="uplikes" placeholder="Default: ∞" /> </label> <br />
-				    <label> Likes lower limit: <input type="text" name="lolikes" placeholder="Default: 0" /> </label> <br />
-				    <label> Dislikes upper limit: <input type="text" name="updislikes" placeholder="Default: ∞" /> </label> <br />
-				    <label> Dislikes lower limit: <input type="text" name="lodislikes" placeholder="Default: 0" /> </label> <br />
-			 	</form>
-			 	</details>
-			</div>
-	</div>
 
 </body>
 </html>
