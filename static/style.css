@@ -100,7 +100,6 @@ input,select,option {
     background: #c0c0c0;
     color: #505050;
     outline: none;
-    width: 20%;
 }
 
 ::-webkit-input-placeholder {
