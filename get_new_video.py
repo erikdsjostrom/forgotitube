@@ -84,7 +84,6 @@ def get_new_video(usr_data):
 			# Did not match duration limits
 			continue
 		elif usr_data[4] != "any" and usr_data[4] != vid.category:
-			print(usr_data[4])
 			continue
 		elif not usr_data[6] <= vid.rating <= usr_data[5]:
 			continue
