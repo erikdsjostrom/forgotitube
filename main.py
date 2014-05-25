@@ -31,8 +31,8 @@ def video():
 	global user_data
 	global id
 	#user_data = [""]*4 + ["any"] + [""]*6
+	#id = 'ay-FQAafeR0'  # Statisk id
 	#id = get_new_video(user_data)  # Sparar tid om kommenterad
-	id = 'ay-FQAafeR0'  # Statisk id
 	if request.method == 'POST':
 		#Perhaps a condition to skip all of this if user_input hasn't changed
 		limit = request.form['limit']
@@ -45,10 +45,11 @@ def video():
 		if upduration and upduration != user_data[2]:
 			user_data[2] = upduration
 		loduration = request.form['loduration']
+		print(loduration)
 		if loduration and loduration != user_data[3]:
 			user_data[3] = loduration
 		category = request.form['category']
-		if category and category != user_data[4]:
+		if category and category != user_data[4] and category != 'any':
 			user_data[4] = category
 		uprating = request.form['uprating']
 		if uprating and uprating != user_data[5]:
@@ -71,8 +72,7 @@ def video():
 		user_data = [user_data[0], user_data[1], user_data[2],
 			user_data[3], user_data[4], user_data[5], user_data[6],
 			user_data[7], user_data[8], user_data[9], user_data[10]]
-		print(user_data)
-		#id = get_new_video(user_data)  # Sparar tid om kommenterad
+		id = get_new_video(user_data)  # Sparar tid om kommenterad
 		return render_template('video.html', id=id, img=img,
 													limit=user_data[0],
 													query=user_data[1],
@@ -86,6 +86,7 @@ def video():
 													updislikes=user_data[9],
 													lodislikes=user_data[10])
 	else:
+		id = get_new_video([""]*4 + ["any"] + [""]*6)  # Sparar tid om kommenterad
 		return render_template('video.html', id=id, img=img,
 													limit=user_data[0],
 													query=user_data[1],
