@@ -10,11 +10,12 @@ Johan Asplund, johan.asplund@math.uu.se
 TODO
 ----
 
-- Make the options and advanced options work.
+- <del>Make the options and advanced options work.</del>
 - <del>Randomize the background image</del>
 - Randomize the text in `templates/index.html`
 - New favicon
 - Optimize the algorithm
+- Make non-ascii characters work in the search query 
 
 
 LICENSE

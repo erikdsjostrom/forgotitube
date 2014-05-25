@@ -26,9 +26,9 @@ def get_random_id(searchquery):
 			idatt = re.compile("/watch\?v=(.*?)&")
 			foundid = idatt.findall(sock)
 			return random.choice(foundid)
-		except Exception as e:
-			print("get_random_id error:")
-			print(e)
+		except Exception:
+			# print("get_random_id error:")
+			# print(e)
 			pass
 
 
@@ -49,7 +49,7 @@ def get_info(id):
 		data[3] = str(cat.findall(sock)[0])
 		return data
 
-	except Exception as h:
-		print("get_info error:")
-		print(h)
+	except Exception:
+		# print("get_info error:")
+		# print(h)
 		pass

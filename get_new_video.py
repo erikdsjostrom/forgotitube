@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import random
+import codecs
 from get_id import get_random_id
 from get_id import get_info
 from get_id import Video
@@ -30,9 +31,9 @@ def get_new_video(usr_data):
 				# Use the query input
 				queryid = get_random_id(usr_data[1])
 				vid = Video(queryid, get_info(queryid))
-		except Exception as e:
-			print("get_new_video error:")
-			print(e)
+		except Exception:
+			# print("get_new_video error:")
+			# print(e)
 			continue
 		# Setting remaining values to default if they are empty strings
 		# 0: view count limit (int)
@@ -66,4 +67,4 @@ def get_new_video(usr_data):
 		# The id passed the filtering
 		return vid.id
 # This is for testing with default inputs
-#print(get_new_video([""]*4 + ["any"] + [""]*6))
+# print(get_new_video([""]*4 + ["any"] + [""]*6))
