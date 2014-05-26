@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import random
 import urllib
-import urllib.request
+#import urllib.request
 import re
 
 

@@ -6,14 +6,12 @@ from get_new_video import get_new_video
 from rotate_background import rotate_background
 
 app = Flask(__name__)
-# global id
-# id = 'ay-FQAafeR0'
+global id
+id = 'ay-FQAafeR0'
 global img
-img = '../static/img/1.jpg'
+#img = '../static/img/1.jpg'
 global user_data
-user_data = ['Default: 50', 'Default: random word', "Default: ∞", "Default: 0",
-													"any"]
-
+user_data = ['Default: 50', 'Default: random word', "Default: ", "Default: 0", "any"]
 
 @app.route('/')
 def index():
@@ -28,9 +26,6 @@ def video():
 	global img
 	global user_data
 	global id
-	# user_data = [""]*4 + ["any"] + [""]*6
-	#id = 'ay-FQAafeR0'  # Statisk id
-	#id = get_new_video(user_data)  # Sparar tid om kommenterad
 	if request.method == 'POST':
 		print('IF')
 		# #Perhaps a condition to skip all of this if user_input hasn't changed
@@ -50,30 +45,12 @@ def video():
 		# category = request.form['category']
 		# if category and category != user_data[4] and category != 'any':
 		# 	user_data[4] = category
-		# uprating = request.form['uprating']
-		# if uprating and uprating != user_data[5]:
-		# 	user_data[5] = uprating
-		# lorating = request.form['lorating']
-		# if lorating and lorating != user_data[6]:
-		# 	user_data[6] = lorating
-		# uplikes = request.form['uplikes']
-		# if uplikes and uplikes != user_data[7]:
-		# 	user_data[7] = uplikes
-		# lolikes = request.form['lolikes']
-		# if lolikes and lolikes != user_data[8]:
-		# 	user_data[8] = lolikes
-		# updislikes = request.form['updislikes']
-		# if updislikes and updislikes != user_data[9]:
-		# 	user_data[9] = updislikes
-		# lodislikes = request.form['lodislikes']
-		# if lodislikes and lodislikes != user_data[10]:
-		# 	user_data[10] = lodislikes
 		# user_data = [user_data[0], user_data[1], user_data[2],
 		# 	user_data[3], user_data[4], user_data[5], user_data[6],
 		# 	user_data[7], user_data[8], user_data[9], user_data[10]]
-		user_data = [50] + ['jättekuk'] + [10000000] + [0] + ["any"]
+		user_data = [50] + [''] + [10000000] + [0] + ["any"]
 		print(user_data[0])
-		id = get_new_video(user_data)  # Sparar tid om kommenterad
+		#id = get_new_video(user_data)  # Sparar tid om kommenterad
 		return render_template('video.html', id=id, img=img,
 													limit=user_data[0],
 													query=user_data[1],
@@ -83,7 +60,7 @@ def video():
 	else:
 		print('ELSE')
 		user_data = [""]*4 + ["any"]
-		id = get_new_video(user_data)  # Sparar tid om kommenterad
+		#id = get_new_video(user_data)  # Sparar tid om kommenterad
 		return render_template('video.html', id=id, img=img,
 													limit=user_data[0],
 													query=user_data[1],

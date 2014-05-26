@@ -13,7 +13,6 @@ with open("keywords.txt") as kw:
 	keywords = kw.read().splitlines()
 
 
-# usr_data är en lista med följande data inkl. datatyper
 # 0: view count limit 		(int)
 # 1: search query 			(string)
 # 2: duration upper limit 	(int)
