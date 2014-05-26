@@ -2,7 +2,7 @@ from flask import Flask
 from flask import url_for
 from flask import render_template
 from flask import request
-from get_new_video import get_new_video
+#from get_new_video import get_new_video
 from rotate_background import rotate_background
 
 app = Flask(__name__)
@@ -12,6 +12,7 @@ global img
 #img = '../static/img/1.jpg'
 global user_data
 user_data = ['Default: 50', 'Default: random word', "Default: ", "Default: 0", "any"]
+
 
 @app.route('/')
 def index():

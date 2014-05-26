@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import random
-import codecs
 from get_id import get_random_id
 from get_id import get_info
 from get_id import Video
@@ -13,6 +12,7 @@ with open("keywords.txt") as kw:
 	keywords = kw.read().splitlines()
 
 
+# usr_data is a list with the following content
 # 0: view count limit 		(int)
 # 1: search query 			(string)
 # 2: duration upper limit 	(int)
