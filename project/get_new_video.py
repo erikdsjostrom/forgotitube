@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import random
-import codecs
 from get_id import get_random_id
 from get_id import get_info
 from get_id import Video
