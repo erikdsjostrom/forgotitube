@@ -19,7 +19,7 @@ user_data = ['Default: 50', 'Default: random word', "Default: ∞", "Default: 0"
 def index():
 	global img
 	img = rotate_background()
-	print(img)  # This should probably not be here in final version
+	#print(img)  # This should probably not be here in final version
 	return render_template('index.html', img=img)
 
 
@@ -32,7 +32,7 @@ def video():
 	#id = 'ay-FQAafeR0'  # Statisk id
 	#id = get_new_video(user_data)  # Sparar tid om kommenterad
 	if request.method == 'POST':
-		print('IF')
+		#print('IF')
 		# #Perhaps a condition to skip all of this if user_input hasn't changed
 		# limit = request.form['limit']
 		# if limit and limit != user_data[0]:
@@ -91,10 +91,10 @@ def video():
 													loduration=user_data[3],
 													category=user_data[4])
 
-with app.test_request_context():
-	print(url_for('index'))
-	print(url_for('video'))
-	print(url_for('static', filename='style.css'))
+#with app.test_request_context():
+#	print(url_for('index'))
+#	print(url_for('video'))
+#	print(url_for('static', filename='style.css'))
 
 if __name__ == '__main__':
 	app.debug = True

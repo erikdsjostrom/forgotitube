@@ -66,4 +66,4 @@ def get_new_video(usr_data):
 		# The id passed the filtering
 		return vid.id
 # This is for testing with default inputs
-print(get_new_video([""]*4 + ["any"] + [""]*6))
+# print(get_new_video([""]*4 + ["any"] + [""]*6))
