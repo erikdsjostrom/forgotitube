@@ -3,7 +3,9 @@
 import random
 import urllib
 import urllib.request
+import urllib.parse
 import re
+import sys
 
 
 class Video():
@@ -21,21 +23,26 @@ class Video():
 
 
 def get_random_id(searchquery):
-		gdataurl = "http://gdata.youtube.com/feeds/api/videos?q=" + searchquery + "&orderby=published"
-		try:
-			sock = urllib.request.urlopen(gdataurl).read().decode("utf-8")
-			idatt = re.compile("/watch\?v=(.*?)&")
-			foundid = idatt.findall(sock)
-			return random.choice(foundid)
-		except Exception:
-			# print("get_random_id error:")
-			# print(e)
-			pass
+	# This line right here, encodes the url in utf-8 (so it can be read by urlopen etc)
+	searchquery = urllib.parse.quote_plus(searchquery.encode("utf-8"))
+	gdataurl = "http://gdata.youtube.com/feeds/api/videos?q=" + searchquery + "&orderby=published&key=AIzaSyB533JS4sNHgWm8Obc7NS6bfBiD6v7Coow"
+	sock = urllib.request.urlopen(gdataurl).read().decode("utf-8")
+	sys.stdout.buffer.write(sock.encode("utf-8"))
+	idatt = re.compile("/watch\?v=(.*?)&")
+	foundid = idatt.findall(sock)
+	if not foundid:
+		return None
+	return random.choice(foundid)
+	#except Exception:
+		# print("get_random_id error:")
+		# print(e)
+	#	pass
 
 
 # get_info takes an id and returns a list with the following things
 # 0: view count, 1: title, 2: duration (sec), 3: category
 def get_info(id):
+	id = urllib.parse.quote_plus(id.encode("utf-8"))
 	url = "https://gdata.youtube.com/feeds/api/videos/" + str(id) + "?v=2"
 	try:
 		sock = urllib.request.urlopen(url).read().decode("utf-8")

@@ -12,7 +12,7 @@ with open("keywords.txt") as kw:
 	keywords = kw.read().splitlines()
 
 
-# usr_data är en lista med följande data inkl. datatyper
+# usr_data is a list with the following content
 # 0: view count limit 		(int)
 # 1: search query 			(string)
 # 2: duration upper limit 	(int)
@@ -66,4 +66,4 @@ def get_new_video(usr_data):
 		# The id passed the filtering
 		return vid.id
 # This is for testing with default inputs
-# print(get_new_video([""]*4 + ["any"] + [""]*6))
+print(get_new_video([""]*4 + ["any"] + [""]*6))
