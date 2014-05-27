@@ -28,7 +28,7 @@ def get_random_id(searchquery):
 	gdataurl = "http://gdata.youtube.com/feeds/api/videos?q=" + searchquery + "&orderby=published&key=AIzaSyB533JS4sNHgWm8Obc7NS6bfBiD6v7Coow"
 	#try:
 	sock = urllib.request.urlopen(gdataurl).read().decode("utf-8")
-	sys.stdout.buffer.write(sock.encode("utf-8"))
+	#sys.stdout.buffer.write(sock.encode("utf-8"))
 	idatt = re.compile("/watch\?v=(.*?)&")
 	foundid = idatt.findall(sock)
 	if not foundid:

@@ -36,6 +36,7 @@ def get_new_video(usr_data):
 			continue
 		# Setting remaining values to default if they are empty strings
 		# 0: view count limit (int)
+		print(usr_data)
 		if not usr_data[0]:
 			usr_data[0] = 50
 		else:
@@ -72,4 +73,4 @@ def get_new_video(usr_data):
 		# The id passed the filtering
 		return vid.id
 # This is for testing with default inputs
-# print(get_new_video([""]*4 + ["any"] + [""]*6))
+print(get_new_video([''] + [''] + [''] + [''] + ["any"]))
