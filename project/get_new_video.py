@@ -13,10 +13,10 @@ with open("keywords.txt") as kw:
 
 
 # usr_data is a list with the following content
-# 0: view count limit 		(int)
+# 0: view count limit 		(string)
 # 1: search query 			(string)
-# 2: duration upper limit 	(int)
-# 3: duration lower limit 	(int)
+# 2: duration upper limit 	(string)
+# 3: duration lower limit 	(string)
 # 4: category 				(string)
 def get_new_video(usr_data):
 	while True:
@@ -38,12 +38,18 @@ def get_new_video(usr_data):
 		# 0: view count limit (int)
 		if not usr_data[0]:
 			usr_data[0] = 50
+		else:
+			usr_data[0] = int(usr_data[0])
 		# 2: duration upper limit (int)
 		if not usr_data[2]:
 			usr_data[2] = float("inf")
+		else:
+			usr_data[2] = int(usr_data[2])
 		# 3: duration lower limit (int)
 		if not usr_data[3]:
 			usr_data[3] = 0
+		else:
+			usr_data[3] = int(usr_data[3])
 		# 4: category (string)
 		if usr_data[4] != "any":
 			# Replaces & with &amp; to match the get_info which takes strings from html
