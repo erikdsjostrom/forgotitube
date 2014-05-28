@@ -73,6 +73,6 @@ def video():
 													loduration=user_data[3],
 													category=user_data[4])
 
-if __name__ == '__main__':
-	app.debug = True
-	app.run()
+# if __name__ == '__main__':
+# 	app.debug = True
+# 	app.run()
