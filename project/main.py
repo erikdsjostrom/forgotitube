@@ -4,7 +4,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from get_new_video import get_new_video
+#from get_new_video import get_new_video
 from rotate_background import rotate_background
 
 app = Flask(__name__)
@@ -73,6 +73,6 @@ def video():
 													loduration=user_data[3],
 													category=user_data[4])
 
-# if __name__ == '__main__':
-# 	app.debug = True
-# 	app.run()
+if __name__ == '__main__':
+	app.debug = True
+	app.run()
