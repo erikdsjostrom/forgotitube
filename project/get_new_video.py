@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import random
+import re
 from get_id import get_random_id
 from get_id import get_info
 from get_id import Video
@@ -54,10 +55,11 @@ def get_new_video(usr_data):
 		# 4: category (string)
 		if usr_data[4] != "any":
 			# Replaces & with &amp; to match the get_info which takes strings from html
-			usr_data[4] = usr_data[4].replace("&", "&amp;")
+			usr_data[4] = re.sub("(\&)[^a]", "&amp; ", usr_data[4])
 
 		# Debugging
 		# vid.show_info()
+		print(vid.category)
 
 		# Filtering out the id if it does not meet all of the requirements
 		# This is where the most time is wasted probably
@@ -68,7 +70,7 @@ def get_new_video(usr_data):
 		elif not usr_data[3] <= vid.duration <= usr_data[2]:
 			# Did not match duration limits
 			continue
-		elif usr_data[4] != "any" and usr_data[4] != vid.category:
+		elif usr_data[4] != "any" and usr_data[4].lower() != vid.category.lower():
 			continue
 		# The id passed the filtering
 		return vid.id
