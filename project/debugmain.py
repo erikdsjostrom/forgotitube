@@ -56,7 +56,6 @@ def video():
 			user_data[3] == '1'
 		#user_data[3] = '1'
 		id = get_new_video(user_data)  # POST Sparar tid om kommenterad
-		print(user_data)
 		return render_template('video.html', id=id, img=img,
 													limit=user_data[0],
 													query=user_data[1],

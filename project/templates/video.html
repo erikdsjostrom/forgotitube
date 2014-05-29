@@ -26,17 +26,17 @@ background-size: cover; background-position-y: center;">
 			<h2>Options</h2>
 			<hr />
 			<form id="settings-form" action="/video" method="POST">
-			    <label> View limit: <input type="text" name="limit" placeholder="{{ limit }}" /> </label>
+			    <label> View limit: <input type="text" autocomplete="off" name="limit" value="{{ limit }}" placeholder="Default: 50" /> </label>
 			    <br />
-			    <label> Search query: <input type="text" name="query" placeholder="{{ query }}" /> </label>
+			    <label> Search query: <input type="text" name="query" value="{{ query }}" autocomplete="off" placeholder="Default: Random Word" /> </label>
 			
 			<div id ="advoptions">
 			 	<details>
 			 	<summary>Advanced options <hr style="background:#c0c0c0; border:0; height:1px" /></summary>
 			 	<fieldset>
-				    <label> Duration upper limit (sec): <input type="text" name="upduration" placeholder="{{ upduration }}" /> </label>
+				    <label> Duration upper limit (sec): <input type="text" value="{{ upduration }}" autocomplete="off" name="upduration" placeholder="Default: ∞" /> </label>
 				    <br />
-				    <label> Duration lower limit (sec): <input type="text" name="loduration" placeholder="{{ loduration }}" /> </label>
+				    <label> Duration lower limit (sec): <input type="text" value="{{ loduration }}" autocomplete="off" name="loduration" placeholder="Default: 0" /> </label>
 				    <br />
 				    <label> Category: 
 				    <select name="category" autofocus="{{ category }}">

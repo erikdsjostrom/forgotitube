@@ -25,7 +25,7 @@ def get_new_video(usr_data):
 		try:
 			if not usr_data[1]:
 				# Default query: random keyword
-				randomid = get_random_id(random.choice(keywords))
+				randomid = get_random_id(random.choice(keywords)) 
 				vid = Video(randomid, get_info(randomid))
 			else:
 				# Use the query input
