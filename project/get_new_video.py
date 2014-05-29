@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import random
 import re
+import copy
 from get_id import get_random_id
 from get_id import get_info
 from get_id import Video
@@ -19,13 +20,14 @@ with open("keywords.txt") as kw:
 # 2: duration upper limit 	(string)
 # 3: duration lower limit 	(string)
 # 4: category 				(string)
-def get_new_video(usr_data):
+def get_new_video(user_data):
+	usr_data = copy.deepcopy(user_data)
 	while True:
 		# Added a try/except for safety, when assigning stuff to avoid crashes.
 		try:
 			if not usr_data[1]:
 				# Default query: random keyword
-				randomid = get_random_id(random.choice(keywords)) 
+				randomid = get_random_id(random.choice(keywords))
 				vid = Video(randomid, get_info(randomid))
 			else:
 				# Use the query input
@@ -56,6 +58,7 @@ def get_new_video(usr_data):
 		# Debugging
 		# vid.show_info()
 		# print(vid.category, usr_data[4])
+		print("Usr_data: ", id(usr_data))
 
 		# Filtering out the id if it does not meet all of the requirements
 		# This is where the most time is wasted probably
