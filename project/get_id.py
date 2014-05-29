@@ -14,7 +14,7 @@ class Video():
 		self.viewcount = int(list[0])
 		self.title = list[1]
 		self.duration = int(list[2])
-		self.category = list[3]
+		self.category = list[3].replace("&amp; ", "& ")
 
 	def show_info(self):
 		print([self.id, self.viewcount, self.title,
