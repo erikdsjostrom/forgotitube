@@ -52,14 +52,10 @@ def get_new_video(usr_data):
 			usr_data[3] = 0
 		else:
 			usr_data[3] = int(usr_data[3])
-		# 4: category (string)
-		if usr_data[4] != "any":
-			# Replaces & with &amp; to match the get_info which takes strings from html
-			usr_data[4] = re.sub("(\&)[^a]", "&amp; ", usr_data[4])
 
 		# Debugging
 		# vid.show_info()
-		# print(vid.category)
+		# print(vid.category, usr_data[4])
 
 		# Filtering out the id if it does not meet all of the requirements
 		# This is where the most time is wasted probably
@@ -73,7 +69,6 @@ def get_new_video(usr_data):
 		elif usr_data[4] != "any" and usr_data[4].lower() != vid.category.lower():
 			continue
 		# The id passed the filtering
-		usr_data[4] = usr_data[4].replace("&amp; ", "& ")
 		return vid.id
 # This is for testing with default inputs
-# print(get_new_video(["", "", "", "", "any"]))
+# print(get_new_video(["", "", "", "", "News & Politics"]))

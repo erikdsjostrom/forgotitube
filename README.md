@@ -14,10 +14,11 @@ TODO
 
 - <del>Make the options and advanced options work.</del>
 - <del>Randomize the background image</del>
-- <del>Make non-ascii characters work in the search query </del>
+- <del>Make non-ascii characters work in the search query</del>
 - Randomize the text in `templates/index.html`
 - New favicon
 - Optimize the algorithm
+- Implement search timeout to prevent infinite loops
 
 
 LICENSE
