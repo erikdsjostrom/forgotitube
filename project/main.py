@@ -48,10 +48,9 @@ def video():
 		category = request.form['category']
 		if category and category != 'any':
 			user_data[4] = category
-		print('Before: ', user_data)
+		print("Before:", user_data)
 		id = get_new_video(user_data)  # POST Sparar tid om kommenterad
-		print('After: ', user_data)
-		# print(user_data)
+		print("After:", user_data)
 		return render_template('video.html', id=id, img=img,
 													limit=user_data[0],
 													query=user_data[1],
@@ -69,5 +68,5 @@ def video():
 													category=user_data[4])
 
 if __name__ == '__main__':
-	app.debug = True #REMOVE THIS IN FINAL VERSION
+	app.debug = False  # REMOVE THIS IN FINAL VERSION
 	app.run()
