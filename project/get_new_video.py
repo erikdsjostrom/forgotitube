@@ -37,7 +37,7 @@ def get_new_video(usr_data):
 			continue
 		# Setting remaining values to default if they are empty strings
 		# 0: view count limit (int)
-		print(usr_data)
+		# print(usr_data)
 		if not usr_data[0]:
 			usr_data[0] = 50
 		else:
@@ -59,7 +59,7 @@ def get_new_video(usr_data):
 
 		# Debugging
 		# vid.show_info()
-		print(vid.category)
+		# print(vid.category)
 
 		# Filtering out the id if it does not meet all of the requirements
 		# This is where the most time is wasted probably
@@ -73,6 +73,7 @@ def get_new_video(usr_data):
 		elif usr_data[4] != "any" and usr_data[4].lower() != vid.category.lower():
 			continue
 		# The id passed the filtering
+		usr_data[4] = usr_data[4].replace("&amp; ", "& ")
 		return vid.id
 # This is for testing with default inputs
 # print(get_new_video(["", "", "", "", "any"]))
