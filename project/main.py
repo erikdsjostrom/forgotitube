@@ -49,19 +49,18 @@ def video():
 		if category and category != 'any':
 			user_data[4] = category
 		print('Before: ', user_data)
-		id = get_new_video(user_data)  # POST Sparar tid om kommenterad
+		videoID = get_new_video(user_data)  # POST Sparar tid om kommenterad
 		print('After: ', user_data)
-		# print(user_data)
-		return render_template('video.html', id=id, img=img,
+		return render_template('video.html', id=videoID, img=img,
 													limit=user_data[0],
 													query=user_data[1],
 													upduration=user_data[2],
 													loduration=user_data[3],
 													category=user_data[4])
 	else:
-		user_data = ["", "", "", "", "any"]
-		id = get_new_video(["10000"] + [""] + [""] + [""] + ["any"])  # GET Sparar tid om kommenterad
-		return render_template('video.html', id=id, img=img,
+		user_data = ['', '', '', '', 'any']
+		videoID = get_new_video(user_data)  # GET Sparar tid om kommenterad
+		return render_template('video.html', id=videoID, img=img,
 													limit=user_data[0],
 													query=user_data[1],
 													upduration=user_data[2],
