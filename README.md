@@ -18,7 +18,9 @@ TODO
 - Randomize the text in `templates/index.html`
 - New favicon
 - Implement search timeout to prevent infinite loops
-
+- Share to facebook,twitter etc
+- Continuous mode
+- Fullscreen mode
 
 LICENSE
 -------
