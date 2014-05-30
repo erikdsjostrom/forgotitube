@@ -15,10 +15,11 @@ TODO
 - <del>Make the options and advanced options work.</del>
 - <del>Randomize the background image</del>
 - <del>Make non-ascii characters work in the search query</del>
+- <del>Implement search timeout to prevent infinite loops</del>
 - Randomize the text in `templates/index.html`
 - New favicon
-- Implement search timeout to prevent infinite loops
-- Share to facebook,twitter etc
+- Raise an error when an invalid character is put in view count for instance
+- Share to social media (buttons)
 - Continuous mode
 - Fullscreen mode
 

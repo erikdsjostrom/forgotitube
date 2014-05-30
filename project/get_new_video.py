@@ -2,6 +2,7 @@
 import random
 import re
 import copy
+import time
 from get_id import get_random_id
 from get_id import get_info
 from get_id import Video
@@ -22,7 +23,8 @@ with open("keywords.txt") as kw:
 # 4: category 				(string)
 def get_new_video(user_data):
 	usr_data = copy.deepcopy(user_data)
-	while True:
+	timeout = time.time()+10
+	while time.time() < timeout:
 		# Added a try/except for safety, when assigning stuff to avoid crashes.
 		try:
 			if not usr_data[1]:
@@ -72,5 +74,6 @@ def get_new_video(user_data):
 			continue
 		# The id passed the filtering
 		return vid.id
+	return "Timeout"
 # This is for testing with default inputs
-# print(get_new_video(["", "", "", "", "News & Politics"]))
+# print(get_new_video(["1", "", "", "", "News & Politics"]))

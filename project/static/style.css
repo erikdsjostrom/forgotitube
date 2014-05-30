@@ -41,6 +41,8 @@ h2 {
 	margin-bottom: -5px;
 }
 
+
+
 #wrapper {
 	padding: 0 0 20px 0;
 	text-align: center;
@@ -79,7 +81,7 @@ h2 {
 }
 
 #options {
-	background: rgba(16,16,16,0.5);
+	background: rgba(16,16,16,0.7);
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -89,11 +91,25 @@ h2 {
 	padding: 0px 10px 5px 10px;
 }
 
+#options p {
+	font-weight: 500;
+	color: #FF4D4A;
+}
+
+#options summary {
+	outline: none;
+	content: ".";
+}
+
+#errormess summary::-webkit-details-marker { 
+	display:none; 
+}
 #advoptions {
 	float: auto;
 	text-align: left; 
 	width:100%;
 }
+
 input,select,option {
     border: none;
     background: #c0c0c0;
@@ -112,9 +128,7 @@ fieldset {
 	border: none;
 	text-align: ":";
 }
-summary {
-	outline: none;
-}
+
 
 
 

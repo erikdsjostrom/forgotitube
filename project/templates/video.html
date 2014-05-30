@@ -22,8 +22,11 @@ background-size: cover; background-position-y: center;">
 			<br />
 			<input id="submitbutton" onClick="location.href='../video'" type="submit" form="settings-form" value="New Video" />
 		</div>
-		<input type="button" onclick="alert('This is an error message, motherfucker')" name="error" value="error">
 		<div id ="options">
+			<details{{ opendisp }} id="errormess"><summary></summary><p>Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
+			<br />
+			<br />
+			Enjoy this cat video while you adjust the options.</p></details>
 			<h2>Options</h2>
 			<hr />
 			<form id="settings-form" action="/video" method="POST">
@@ -32,7 +35,7 @@ background-size: cover; background-position-y: center;">
 			    <label> Search query: <input type="text" name="query" value="{{ query }}" autocomplete="off" placeholder="Default: Random Word" /> </label>
 			
 			<div id ="advoptions">
-			 	<details>
+			 	<details class="visa">
 			 	<summary>Advanced options <hr style="background:#c0c0c0; border:0; height:1px" /></summary>
 			 	<fieldset>
 				    <label> Duration upper limit (sec): <input type="text" value="{{ upduration }}" autocomplete="off" name="upduration" placeholder="Default: ∞" /> </label>
