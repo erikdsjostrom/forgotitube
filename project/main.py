@@ -52,7 +52,7 @@ def video():
 
 		videoID = get_new_video(user_data)  # POST Sparar tid om kommenterad
 		if videoID == "Timeout":
-			return render_template('video.html', id="Kdgt1ZHkvnM", img=img,
+			return render_template('video.html', id="Kdgt1ZHkvnM?autoplay=1&iv_load_policy=3", img=img,
 														limit=user_data[0],
 														query=user_data[1],
 														upduration=user_data[2],
