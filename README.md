@@ -17,7 +17,6 @@ TODO
 - <del>Make non-ascii characters work in the search query</del>
 - Randomize the text in `templates/index.html`
 - New favicon
-- Optimize the algorithm
 - Implement search timeout to prevent infinite loops
 
 
