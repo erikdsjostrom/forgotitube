@@ -54,24 +54,66 @@ background-size: cover; background-position-y: center;">
 				    <br />
 				    <label> Duration lower limit (sec): <input type="text" value="{{ loduration }}" autocomplete="off" name="loduration" placeholder="Default: 0" onkeydown="return FilterAlpha (event)" /> </label>
 				    <br />
-				    <label> Category: 
-				    <select name="category">
-				      <option value="any"{% if category=="any" %} selected{% endif %}>Any</option>
-				      <option value="Autos &amp; Vehicles"{% if category=="Autos &amp; Vehicles" %} selected{% endif %}>Autos &amp; Vehicles</option>
-				      <option value="Comedy"{% if category=="Comedy" %} selected{% endif %}>Comedy</option>
-				      <option value="Education"{% if category=="Education" %} selected{% endif %}>Education</option>
-				      <option value="Entertainment"{% if category=="Entertainment" %} selected{% endif %}>Entertainment</option>
-				      <option value="Film &amp; Animation"{% if category=="Film &amp; Animation" %} selected{% endif %}>Film &amp; Animation</option>
-				      <option value="Howto &amp; Style"{% if category=="Howto &amp; Style" %} selected{% endif %}>Howto &amp; Style</option>
-				      <option value="Music"{% if category=="Music" %} selected{% endif %}>Music</option>
-				      <option value="News &amp; Politics"{% if category=="News" %} selected{% endif %}>News &amp; Politics</option>
-				      <option value="Nonprofits &amp; Activism"{% if category=="Nonprofits &amp; Activism" %} selected{% endif %}>Nonprofits &amp; Activism</option>
-				      <option value="People &amp; Blogs"{% if category=="People &amp; Blogs" %} selected{% endif %}>People &amp; Blogs</option>
-				      <option value="Pets &amp; Animals"{% if category=="Pets &amp; Animals" %} selected{% endif %}>Pets &amp; Animals</option>
-				      <option value="Science &amp; Technology"{% if category=="Science &amp; Technology" %} selected{% endif %}>Science &amp; Technology</option>
-				      <option value="Sports"{% if category=="Sports" %} selected{% endif %}>Sports</option>
-				      <option value="Travel &amp; Events"{% if category=="Travel &amp; Events" %} selected{% endif %}>Travel &amp; Events</option>
-				    </select>
+				    <label> Categories (will match any category if all is unchecked): <br />
+				    <div style="width: 49%; float: left;">
+				    	<input id="aut" type="checkbox" value="Autos &amp; Vehicles" name="aut" {% if "Autos &amp; Vehicles" in category %} checked{% endif %}>
+				    		<label for="aut">Autos &amp; Vehicles</label> <br />
+
+				    	<input id="aut"  type="checkbox" value="Comedy" 
+				    			name="com" {% if "Comedy" in category %} checked{% endif %}>
+				    		<label for="com">Comedy</label> <br />
+
+				    	<input id="edu"  type="checkbox" value="Education" 
+				    			name="edu" {% if "Education" in category %} checked{% endif %}>
+				    		<label for="edu">Education</label> <br />
+
+				    	<input id="ent" type="checkbox" value="Entertainment" 
+				    			name="ent" {% if "Entertainment" in category %} checked{% endif %}>
+				    		<label for="ent">Entertainment</label> <br />
+
+				    	<input id="fil" type="checkbox" value="Film &amp; Animation" 
+				    			name="fil" {% if "Film &amp; Animation" in category %} checked{% endif %}>
+				    		<label for="fil">Film &amp; Animation</label> <br />
+
+				    	<input id="how" type="checkbox" value="Howto &amp; Style" 
+				    			name="how" {% if "Howto &amp; Style" in category %} checked{% endif %}>
+				    		<label for="how">Howto &amp; Style</label> <br />
+
+				    	<input id="mus" type="checkbox" value="Music" 
+				    			name="mus" {% if "Music" in category %} checked{% endif %}>
+				    		<label for="mus">Music</label> <br />
+				    </div>
+
+				    <div style="width: 49%; float: right;">
+				    	<input id="new" type="checkbox" value="News &amp; Politics" 
+				    			name="new" {% if "News &amp; Politics" in category %} checked{% endif %}>
+				    		<label for="new">News &amp; Politics</label> <br />
+
+				    	<input id="non" type="checkbox" value="Nonprofits &amp; Activism" 
+				    			name="non" {% if "Nonprofits &amp; Activism" in category %} checked{% endif %}>
+				    		<label for="non">Nonprofits &amp; Activism</label> <br />
+
+				    	<input id="peo" type="checkbox" value="People &amp; Blogs" 
+				    			name="peo" {% if "People &amp; Blogs" in category %} checked{% endif %}>
+				    		<label for="peo">People &amp; Blogs</label> <br />
+
+				    	<input id="pet" type="checkbox" value="Pets &amp; Animals" 
+				    			name="pet" {% if "Pets &amp; Animals" in category %} checked{% endif %}>
+				    		<label for="pet">Pets &amp; Animals</label> <br />
+
+				    	<input id="sci" type="checkbox" value="Science &amp; Technology" 
+				    			name="sci" {% if "Science &amp; Technology" in category %} checked{% endif %}>
+				    		<label for="sci">Science &amp; Technology</label> <br />
+
+				    	<input id="spo" type="checkbox" value="Sports" 
+				    			name="spo" {% if "Sports" in category %} checked{% endif %}>
+				    		<label for="spo">Sports</label> <br />
+
+				    	<input id="tra" type="checkbox" value="Travel &amp; Events" 
+				    			name="tra" {% if "Travel &amp; Events" in category %} checked{% endif %}>
+				    		<label for="tra">Travel &amp; Events</label> <br />
+
+				    </div> 
 			 	</fieldset>
 			 	</details>
 			</div>

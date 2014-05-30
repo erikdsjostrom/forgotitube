@@ -20,7 +20,7 @@ with open("keywords.txt") as kw:
 # 1: search query 			(string)
 # 2: duration upper limit 	(string)
 # 3: duration lower limit 	(string)
-# 4: category 				(string)
+# 4: category 				(list with strings)
 def get_new_video(user_data):
 	usr_data = copy.deepcopy(user_data)
 	timeout = time.time()+10
@@ -70,10 +70,10 @@ def get_new_video(user_data):
 		elif not usr_data[3] <= vid.duration <= usr_data[2]:
 			# Did not match duration limits
 			continue
-		elif usr_data[4] != "any" and usr_data[4].lower() != vid.category.lower():
+		elif usr_data[4] and vid.category not in usr_data[4]:
 			continue
 		# The id passed the filtering
 		return vid.id
 	return "Timeout"
 # This is for testing with default inputs
-# print(get_new_video(["1", "", "", "", "News & Politics"]))
+#print(get_new_video(["", "", "", "", []]))
