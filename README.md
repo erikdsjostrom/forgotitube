@@ -16,9 +16,9 @@ TODO
 - <del>Randomize the background image</del>
 - <del>Make non-ascii characters work in the search query</del>
 - <del>Implement search timeout to prevent infinite loops</del>
+- <del>Raise an error when an invalid character is put in view count for instance</del>
 - Randomize the text in `templates/index.html`
 - New favicon
-- Raise an error when an invalid character is put in view count for instance
 - Share to social media (buttons)
 - Continuous mode
 - Fullscreen mode
