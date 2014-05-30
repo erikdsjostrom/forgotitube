@@ -46,7 +46,8 @@ def video():
 		else:
 			user_data[3] = ''
 		category = request.form['category']
-		if category and category != 'any':
+		print
+		if category and category != 'Any':
 			user_data[4] = category
 		print('Before: ', user_data)
 		videoID = get_new_video(user_data)  # POST Sparar tid om kommenterad
@@ -56,7 +57,7 @@ def video():
 													query=user_data[1],
 													upduration=user_data[2],
 													loduration=user_data[3],
-													category=user_data[4])
+													category=user_data[4].replace('&', '&amp;'))
 	else:
 		user_data = ['', '', '', '', 'any']
 		videoID = get_new_video(user_data)  # GET Sparar tid om kommenterad
