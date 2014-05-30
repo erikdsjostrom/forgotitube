@@ -58,7 +58,6 @@ def get_new_video(user_data):
 		# Debugging
 		# vid.show_info()
 		# print(vid.category, usr_data[4])
-		print("Usr_data: ", id(usr_data))
 
 		# Filtering out the id if it does not meet all of the requirements
 		# This is where the most time is wasted probably

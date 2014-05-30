@@ -8,12 +8,8 @@ from get_new_video import get_new_video
 from rotate_background import rotate_background
 
 app = Flask(__name__)
-global user_data
-user_data = 'placeholder'
 global img
 img = 'placeholder'
-global old_user_data
-old_user_data = ['Default: 50', 'Default: Random word', "Default: ∞", "Default: 0", "any"]
 
 
 @app.route('/')
@@ -26,46 +22,52 @@ def index():
 @app.route('/video', methods=['POST', 'GET'])
 def video():
 	global img
-	global user_data
-	global old_user_data
-	global id
+	user_data = ['', '', '', '', 'any']
 	if request.method == 'POST':
 		# Perhaps a condition to skip all of this if user_input hasn't changed
 		limit = request.form['limit']
-		if limit:
+		if limit and limit != 50:
 			user_data[0] = limit
+		else:
+			user_data[0] = ''
 		query = request.form['query']
 		if query:
 			user_data[1] = query
+		else:
+			user_data[1] = ''
 		upduration = request.form['upduration']
-		if upduration:
+		if upduration and upduration != 'inf':
 			user_data[2] = upduration
+		else:
+			user_data[2] = ''
 		loduration = request.form['loduration']
 		if loduration:
 			user_data[3] = loduration
+		else:
+			user_data[3] = ''
 		category = request.form['category']
 		if category and category != 'any':
 			user_data[4] = category
-		if user_data[0] == 'Default: 50':
-			user_data[0] = ''
-		if user_data[1] == 'Default: Random word':
-			user_data[1] = ''
-		if user_data[2] == 'Default: ∞':
-			user_data[2] = ''
-		if user_data[3] == 'Default: 0':
-			user_data[3] == '1'
-		#user_data[3] = '1'
+<<<<<<< HEAD
+		print('Before: ', user_data)
+		videoID = get_new_video(user_data)  # POST Sparar tid om kommenterad
+		print('After: ', user_data)
+		return render_template('video.html', id=videoID, img=img,
+=======
+		print("Before:", user_data)
 		id = get_new_video(user_data)  # POST Sparar tid om kommenterad
+		print("After:", user_data)
 		return render_template('video.html', id=id, img=img,
+>>>>>>> e823204e196270b66b32bbbe94aea0215d1d0d3a
 													limit=user_data[0],
 													query=user_data[1],
 													upduration=user_data[2],
 													loduration=user_data[3],
 													category=user_data[4])
 	else:
-		user_data = ['Default: 50', 'Default: Random word', "Default: ∞", "Default: 0", "any"]
-		id = get_new_video(["10000"] + [""] + [""] + [""] + ["any"])  # GET Sparar tid om kommenterad
-		return render_template('video.html', id=id, img=img,
+		user_data = ['', '', '', '', 'any']
+		videoID = get_new_video(user_data)  # GET Sparar tid om kommenterad
+		return render_template('video.html', id=videoID, img=img,
 													limit=user_data[0],
 													query=user_data[1],
 													upduration=user_data[2],
@@ -73,5 +75,5 @@ def video():
 													category=user_data[4])
 
 if __name__ == '__main__':
-	app.debug = True
+	app.debug = False  # REMOVE THIS IN FINAL VERSION
 	app.run()
