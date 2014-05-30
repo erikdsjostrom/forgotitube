@@ -13,6 +13,18 @@ background-size: cover; background-position-y: center;">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
 
+<script type="text/javascript">
+    function FilterAlpha (event) {
+	    var keyCode = ('which' in event) ? event.which : event.keyCode;
+
+	    isAlpha = (keyCode >= 48 /* KeyboardEvent.DOM_VK_0 */ && keyCode <= 57 /* KeyboardEvent.DOM_VK_9 */) || 
+	    			(keyCode >= 96 /* KeyboardEvent.DOM_VK_NUMPAD0 */ && keyCode <= 105 /* KeyboardEvent.DOM_VK_NUMPAD9 */);
+	    modifiers = (event.altKey || event.ctrlKey || event.shiftKey);
+	    arrowsBack = keyCode == 8 || keyCode == 9 || (keyCode >= 37 && keyCode <= 40)
+	    return isAlpha || modifiers || arrowsBack;
+    }
+ </script>
+
 </head>
 <body class="home">
 	
@@ -23,14 +35,14 @@ background-size: cover; background-position-y: center;">
 			<input id="submitbutton" onClick="location.href='../video'" type="submit" form="settings-form" value="New Video" />
 		</div>
 		<div id ="options">
-			<details{{ opendisp }} id="errormess"><summary></summary><p>Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
+			<p style="display: {{opendisp}};">Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
 			<br />
 			<br />
-			Enjoy this cat video while you adjust the options.</p></details>
+			Enjoy this cat video while you adjust the options.</p>
 			<h2>Options</h2>
 			<hr />
 			<form id="settings-form" action="/video" method="POST">
-			    <label> View limit: <input type="text" autocomplete="off" name="limit" value="{{ limit }}" placeholder="Default: 50" /> </label>
+			    <label> View limit: <input type="text" autocomplete="off" name="limit" value="{{ limit }}" placeholder="Default: 50" onkeydown="return FilterAlpha (event)" /> </label>
 			    <br />
 			    <label> Search query: <input type="text" name="query" value="{{ query }}" autocomplete="off" placeholder="Default: Random Word" /> </label>
 			
@@ -38,9 +50,9 @@ background-size: cover; background-position-y: center;">
 			 	<details>
 			 	<summary>Advanced options <hr style="background:#c0c0c0; border:0; height:1px" /></summary>
 			 	<fieldset>
-				    <label> Duration upper limit (sec): <input type="text" value="{{ upduration }}" autocomplete="off" name="upduration" placeholder="Default: ∞" /> </label>
+				    <label> Duration upper limit (sec): <input type="text" value="{{ upduration }}" autocomplete="off" name="upduration" placeholder="Default: ∞" onkeydown="return FilterAlpha (event)" /> </label>
 				    <br />
-				    <label> Duration lower limit (sec): <input type="text" value="{{ loduration }}" autocomplete="off" name="loduration" placeholder="Default: 0" /> </label>
+				    <label> Duration lower limit (sec): <input type="text" value="{{ loduration }}" autocomplete="off" name="loduration" placeholder="Default: 0" onkeydown="return FilterAlpha (event)" /> </label>
 				    <br />
 				    <label> Category: 
 				    <select name="category">
