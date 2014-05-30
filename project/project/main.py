@@ -46,6 +46,7 @@ def video():
 		else:
 			user_data[3] = ''
 		category = request.form['category']
+		print
 		if category and category != 'Any':
 			user_data[4] = category
 
