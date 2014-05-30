@@ -49,15 +49,24 @@ def video():
 		print
 		if category and category != 'Any':
 			user_data[4] = category
-		print('Before: ', user_data)
+
 		videoID = get_new_video(user_data)  # POST Sparar tid om kommenterad
-		print('After: ', user_data)
-		return render_template('video.html', id=videoID, img=img,
-													limit=user_data[0],
-													query=user_data[1],
-													upduration=user_data[2],
-													loduration=user_data[3],
-													category=user_data[4].replace('&', '&amp;'))
+		if videoID == "Timeout":
+			return render_template('video.html', id="Kdgt1ZHkvnM", img=img,
+														limit=user_data[0],
+														query=user_data[1],
+														upduration=user_data[2],
+														loduration=user_data[3],
+														category=user_data[4].replace('&', '&amp;'),
+														opendisp=" open")
+		else:
+			return render_template('video.html', id=videoID, img=img,
+														limit=user_data[0],
+														query=user_data[1],
+														upduration=user_data[2],
+														loduration=user_data[3],
+														category=user_data[4].replace('&', '&amp;'),
+														opendisp="")
 	else:
 		user_data = ['', '', '', '', 'any']
 		videoID = get_new_video(user_data)  # GET Sparar tid om kommenterad
