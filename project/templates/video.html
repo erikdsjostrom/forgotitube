@@ -23,10 +23,10 @@ background-size: cover; background-position-y: center;">
 			<input id="submitbutton" onClick="location.href='../video'" type="submit" form="settings-form" value="New Video" />
 		</div>
 		<div id ="options">
-			<details{{ opendisp }} id="errormess"><summary></summary><p>Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
+			<p style="display: {{opendisp}};">Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
 			<br />
 			<br />
-			Enjoy this cat video while you adjust the options.</p></details>
+			Enjoy this cat video while you adjust the options.</p>
 			<h2>Options</h2>
 			<hr />
 			<form id="settings-form" action="/video" method="POST">

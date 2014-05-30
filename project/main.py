@@ -58,7 +58,7 @@ def video():
 														upduration=user_data[2],
 														loduration=user_data[3],
 														category=user_data[4].replace('&', '&amp;'),
-														opendisp=" open")
+														opendisp="block")
 		else:
 			return render_template('video.html', id=videoID, img=img,
 														limit=user_data[0],
@@ -66,7 +66,7 @@ def video():
 														upduration=user_data[2],
 														loduration=user_data[3],
 														category=user_data[4].replace('&', '&amp;'),
-														opendisp="")
+														opendisp="none")
 	else:
 		user_data = ['', '', '', '', 'any']
 		videoID = get_new_video(user_data)  # GET Sparar tid om kommenterad
@@ -75,7 +75,8 @@ def video():
 													query=user_data[1],
 													upduration=user_data[2],
 													loduration=user_data[3],
-													category=user_data[4])
+													category=user_data[4],
+													opendisp="none")
 
 if __name__ == '__main__':
 	app.debug = True #REMOVE THIS IN FINAL VERSION

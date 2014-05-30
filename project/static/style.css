@@ -101,9 +101,6 @@ h2 {
 	content: ".";
 }
 
-#errormess summary::-webkit-details-marker { 
-	display:none; 
-}
 #advoptions {
 	float: auto;
 	text-align: left; 
