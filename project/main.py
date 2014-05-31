@@ -26,7 +26,11 @@ def video():
 	categories = ["aut", "com", "edu", "ent", "fil", "how", "mus",
 															"new",
 															"non",
-															"peo", "pet", "sci", "spo", "tra"]
+															"peo",
+															"pet",
+															"sci",
+															"spo",
+															"tra"]
 	category = []
 	if request.method == 'POST':
 		# Perhaps a condition to skip all of this if user_input hasn't changed
@@ -87,6 +91,13 @@ def video():
 													category=user_data[4],
 													opendisp="none")
 
+
+@app.route('/continous_video', methods=['POST'])
+def continous_video():
+	for i in range(2):  # Only for testing should be a while loop in final version
+		print('test')
+		print(video())
+
 if __name__ == '__main__':
-	app.debug = True #REMOVE THIS IN FINAL VERSION
+	app.debug = True  # REMOVE THIS IN FINAL VERSION
 	app.run()
