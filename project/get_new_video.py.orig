@@ -58,8 +58,13 @@ def get_new_video(user_data):
 			usr_data[3] = int(usr_data[3])
 
 		# Debugging
+<<<<<<< HEAD
+		vid.show_info()
+		# print(vid.category, usr_data[4])
+=======
 		# vid.show_info()
 		# print(vid.viewcount, usr_data[0])
+>>>>>>> 136f4ed6c190c16422e911c8bda3f2e97a5f8099
 
 		# Filtering out the id if it does not meet all of the requirements
 		# This is where the most time is wasted probably
