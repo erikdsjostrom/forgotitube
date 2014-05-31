@@ -58,7 +58,7 @@ def get_new_video(user_data):
 			usr_data[3] = int(usr_data[3])
 
 		# Debugging
-		# vid.show_info()
+		vid.show_info()
 		# print(vid.category, usr_data[4])
 
 		# Filtering out the id if it does not meet all of the requirements
