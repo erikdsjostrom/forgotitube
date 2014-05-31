@@ -24,22 +24,36 @@ background-size: cover; background-position-y: center;">
 	    return isAlpha || modifiers || arrowsBack;
     }
  </script>
+<div id="fb-root"></div>
+ <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 </head>
+
 <body class="home">
-	
+	<div id="outer">
 		<div id="wrapper" style="background: none; margin-top:5%;">
-		
 			<iframe width="500" height="281" src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
 			<br />
 			<input id="submitbutton" onClick="location.href='../video'" type="submit" form="settings-form" value="New Video" />
 		</div>
 		<div id ="options">
-			<p style="display: {{opendisp}};">Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
+			<p style="display: {{ opendisp }};">Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
 			<br />
 			<br />
 			Enjoy this cat video while you adjust the options.</p>
-			<h2>Options</h2>
+			<div id="optheader">
+				<div class="opttitle">
+					<h2>Options</h2>
+				</div>
+				<div class="fb-share-button" data-href="https://www.youtube.com/watch?v={{ id }}" data-type="icon_link">
+				</div>
+			</div>
 			<hr />
 			<form id="settings-form" action="/video" method="POST">
 			    <label> View limit: <input type="text" autocomplete="off" name="limit" value="{{ limit }}" placeholder="Default: 50" onkeydown="return FilterAlpha (event)" /> </label>
@@ -54,7 +68,7 @@ background-size: cover; background-position-y: center;">
 				    <br />
 				    <label> Duration lower limit (sec): <input type="text" value="{{ loduration }}" autocomplete="off" name="loduration" placeholder="Default: 0" onkeydown="return FilterAlpha (event)" /> </label>
 				    <br />
-				    <label> Categories (will match any category if all is unchecked): <br />
+				    Categories (will match any category if all is unchecked): <br />
 				    <div style="width: 49%; float: left;">
 				    	<input id="aut" type="checkbox" value="Autos &amp; Vehicles" name="aut" {% if "Autos &amp; Vehicles" in category %} checked{% endif %}>
 				    		<label for="aut">Autos &amp; Vehicles</label> <br />
@@ -112,12 +126,19 @@ background-size: cover; background-position-y: center;">
 				    	<input id="tra" type="checkbox" value="Travel &amp; Events" 
 				    			name="tra" {% if "Travel &amp; Events" in category %} checked{% endif %}>
 				    		<label for="tra">Travel &amp; Events</label> <br />
-
 				    </div> 
 			 	</fieldset>
 			 	</details>
 			</div>
-		</form>
+			</form>
+		</div>
+		<div id="footer" style=
+							"width: 30%; padding-left: 10px; 
+							padding-right: 10px; background: rgba(16,16,16,0.7);">
+				<span>
+					&copy; 2014 <a href="https://github.com/metalgeek/forgotitube">Forgotitube</a>. Much love to <a href="http://www.youtube.com">Youtube</a>.
+				</span>
+		</div>
 	</div>
 
 </body>

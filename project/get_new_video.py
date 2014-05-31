@@ -42,7 +42,7 @@ def get_new_video(user_data):
 		# Setting remaining values to default if they are empty strings
 		# 0: view count limit (int)
 		# print(usr_data)
-		if not usr_data[0]:
+		if not usr_data[0] and usr_data[0] != 0:
 			usr_data[0] = 50
 		else:
 			usr_data[0] = int(usr_data[0])
@@ -59,7 +59,7 @@ def get_new_video(user_data):
 
 		# Debugging
 		# vid.show_info()
-		# print(vid.category, usr_data[4])
+		# print(vid.viewcount, usr_data[0])
 
 		# Filtering out the id if it does not meet all of the requirements
 		# This is where the most time is wasted probably
@@ -76,4 +76,4 @@ def get_new_video(user_data):
 		return vid.id
 	return "Timeout"
 # This is for testing with default inputs
-#print(get_new_video(["", "", "", "", []]))
+# print(get_new_video(["0", "", "", "", []]))

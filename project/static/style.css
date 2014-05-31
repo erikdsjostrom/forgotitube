@@ -1,9 +1,15 @@
-html {
+html{
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
 }
 body {
 	/* Helvetica/Arial-based sans serif stack */
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
 	font-family: 'Open Sans', 'Montserrat', Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 100%;
 	color: #fff;
@@ -13,18 +19,22 @@ body {
 	font-weight: 300;
 }
 
+#outer {
+	height:100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 h1 {
 	line-height: 1;
 	font-weight: 700;
 	font-size: 3.5em;
 	margin: 15px 0 20px;
+	margin-top: 200px;
 	color: #f5f5f5;
 	font-family: 'Montserrat';
 	padding: 20px 0 0 0;
-}
-
-.home h1 {
-	margin-top: 200px;
+	border:
 }
 
 h3 {
@@ -36,13 +46,17 @@ h3 {
 }
 
 h2 {
+	text-align: left;
 	font-weight: 400;
-	padding-bottom: -5px;
-	margin-bottom: -5px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-top: 0px;
 }
 
 #wrapper {
-	padding: 0 0 20px 0;
+	padding-left: 20px;
+	padding-bottom: 10px;
 	text-align: center;
 	background: rgba(16,16,16,0.5);
 }
@@ -66,7 +80,6 @@ h2 {
 	background-color: #c8c8c8;
 	font-weight: 900;
 	padding: 15px 30px 15px 30px;
-	float: center;
 	outline: none;
 }
 
@@ -100,7 +113,6 @@ h2 {
 }
 
 #advoptions {
-	float: auto;
 	text-align: left; 
 	width:100%;
 }
@@ -123,3 +135,39 @@ fieldset {
 	border: none;
 	text-align: ":";
 }
+#footer {
+	background: rgba(16,16,16,0.5);
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	font-size: 10pt;
+}
+#footer a{
+	text-decoration: none;
+	color: #f5f5f5
+}
+#footer a:hover{
+	text-decoration: none;
+	color: #FF4D4A
+}
+#footer a:visited{
+	text-decoration: none;
+}
+
+#optheader {
+	width: 100%;
+	height: auto;
+	overflow: auto;
+}
+
+.opttitle {
+	width: 45%;
+	margin-top: 0px;
+	float: left;
+}
+
+.fb-share-button {
+	float: right;
+}
+
+

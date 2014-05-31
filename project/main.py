@@ -59,7 +59,6 @@ def video():
 		videoID = get_new_video(user_data)  # POST Sparar tid om kommenterad
 		for x, c in enumerate(user_data[4]):
 			user_data[4][x] = c.replace("&", "&amp;")
-		print(user_data[4])
 		if videoID == "Timeout":
 			return render_template('video.html', id="Kdgt1ZHkvnM?autoplay=1&iv_load_policy=3", 
 														img=img,

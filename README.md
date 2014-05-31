@@ -18,8 +18,8 @@ TODO
 - <del>Implement search timeout to prevent infinite loops</del>
 - <del>Raise an error when an invalid character is put in view count for instance</del>
 - <del>New favicon</del>
+- <del>Share to social media (buttons)</del>
 - Randomize the text in `templates/index.html`
-- Share to social media (buttons)
 - Continuous mode
 - Fullscreen mode
 
