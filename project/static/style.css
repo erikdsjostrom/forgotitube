@@ -139,18 +139,19 @@ fieldset {
 	background: rgba(16,16,16,0.5);
 	margin-right: auto;
 	margin-left: auto;
+	margin-bottom: auto;
 	text-align: center;
 	font-size: 10pt;
 }
-#footer a{
+#footer a {
 	text-decoration: none;
 	color: #f5f5f5
 }
-#footer a:hover{
+#footer a:hover {
 	text-decoration: none;
 	color: #FF4D4A
 }
-#footer a:visited{
+#footer a:visited {
 	text-decoration: none;
 }
 
@@ -167,6 +168,7 @@ fieldset {
 }
 
 .fb-share-button {
+	margin-left: auto;
 	float: right;
 }
 
