@@ -3,9 +3,7 @@
 -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; 
 background-size: cover; background-position-y: center;">
 <head>
-	
 	<meta charset="utf-8" />
-	
 	<title>Forgotitube | Discover a previously unwatched YouTube video</title>
 
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
@@ -13,16 +11,19 @@ background-size: cover; background-position-y: center;">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
 </head>
-<body class="home">
-
+<body>
+	<div id="outer">
 		<div id="wrapper">
-			
 			<h1>Don't forget me.</h1>
 			<h3>A huge number of videos on YouTube have never been played.<br />Not even once. Let's change that.</h3>
 			<br />
 			<input id="submitbutton" onClick="location.href='../video'" type="submit" form="settings-form" value="Start Watching" />
-		
 		</div>
-
+		<div id="footer">
+				<span>
+					&copy; 2014 <a href="https://github.com/metalgeek/forgotitube">Forgotitube</a>. Much love to <a href="http://www.youtube.com">Youtube</a>.
+				</span>
+		</div>
+	</div>
 </body>
 </html>

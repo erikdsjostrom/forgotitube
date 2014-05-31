@@ -20,7 +20,7 @@ with open("keywords.txt") as kw:
 # 1: search query 			(string)
 # 2: duration upper limit 	(string)
 # 3: duration lower limit 	(string)
-# 4: category 				(string)
+# 4: category 				(list with strings)
 def get_new_video(user_data):
 	usr_data = copy.deepcopy(user_data)
 	timeout = time.time()+10
@@ -42,7 +42,7 @@ def get_new_video(user_data):
 		# Setting remaining values to default if they are empty strings
 		# 0: view count limit (int)
 		# print(usr_data)
-		if not usr_data[0]:
+		if not usr_data[0] and usr_data[0] != 0:
 			usr_data[0] = 50
 		else:
 			usr_data[0] = int(usr_data[0])
@@ -59,7 +59,7 @@ def get_new_video(user_data):
 
 		# Debugging
 		# vid.show_info()
-		# print(vid.category, usr_data[4])
+		# print(vid.viewcount, usr_data[0])
 
 		# Filtering out the id if it does not meet all of the requirements
 		# This is where the most time is wasted probably
@@ -70,10 +70,10 @@ def get_new_video(user_data):
 		elif not usr_data[3] <= vid.duration <= usr_data[2]:
 			# Did not match duration limits
 			continue
-		elif usr_data[4] != "any" and usr_data[4].lower() != vid.category.lower():
+		elif usr_data[4] and vid.category not in usr_data[4]:
 			continue
 		# The id passed the filtering
 		return vid.id
 	return "Timeout"
 # This is for testing with default inputs
-# print(get_new_video(["1", "", "", "", "News & Politics"]))
+# print(get_new_video(["0", "", "", "", []]))
