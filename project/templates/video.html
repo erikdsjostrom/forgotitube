@@ -54,10 +54,10 @@ background-size: cover; background-position-y: center;">
 			<iframe  width="500" height="281"  src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
 			<br />
 			<input id="submitbutton" type="submit" form="settings-form" value="New Video" />
-			<br/>
+			<br />
 
 			<span id="result">LoL</span>
-			<p><a href="javascript:void();" id="getID">Get new ID</a>
+			<p><a href="javascript:void();" id="getID">Get new ID</a></p>
 			
 
 		</div>
@@ -76,7 +76,7 @@ background-size: cover; background-position-y: center;">
 			<hr />
 			<form id="settings-form" action="/video" method="POST">
 			    <input id="mode"  type="checkbox" value="mode" name="mode" {% if mode=="checked" %} checked{% endif %}>
-	    		    <label for="com">Continous Mode</label> <br />
+	    		    <label for="mode">Continuous Mode</label> <br />
 			    <label> View limit: <input type="text" autocomplete="off" name="limit" value="{{ limit }}" placeholder="Default: 50" onkeydown="return FilterAlpha (event)" /> </label>
 			    <br />
 			    <label> Search query: <input type="text" name="query" value="{{ query }}" autocomplete="off" placeholder="Default: Random Word" /> </label>
@@ -154,7 +154,7 @@ background-size: cover; background-position-y: center;">
 			</form>
 		</div>
 		<div id="footer" style=
-							"width: 30%; padding-left: 10px; 
+							"width: 35%; padding-left: 10px; 
 							padding-right: 10px; background: rgba(16,16,16,0.7);">
 				<span>
 					&copy; 2014 <a href="https://github.com/metalgeek/forgotitube">Forgotitube</a>. Much love to <a href="http://www.youtube.com">Youtube</a>.
