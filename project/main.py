@@ -26,7 +26,7 @@ def video():
 	user_data = ['', '', '', '', []]
 	if request.method == 'POST':
 		try:
-			# If continous mode is turned on
+			# If continuous mode is turned on
 			mode = request.form['mode']
 			videoID, user_data = get_video()
 			if videoID == "Timeout":
