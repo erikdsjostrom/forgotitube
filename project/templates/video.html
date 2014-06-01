@@ -16,7 +16,7 @@ background-size: cover; background-position-y: center;">
 
   <script type=text/javascript>
     $(function() {
-      $('a#getID').bind('click', function() {
+      $('a#submitbutton').bind('click', function() {
         $.getJSON('/get_video_id', {
         }, function(data) {
           $("#iframe").attr('src', data.result);
@@ -24,7 +24,7 @@ background-size: cover; background-position-y: center;">
         return false;
       });
     });
-  </script>
+  </script>3
 
 <script type="text/javascript">
     function FilterAlpha (event) {
@@ -53,10 +53,8 @@ background-size: cover; background-position-y: center;">
 		<div id="wrapper" style="background: none; margin-top:5%;">
 			<iframe  width="500" id="iframe" height="281"  src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
 			<br>
-			<input id="submitbutton" type="submit" form="settings-form" value="New Video" />
+			<input href="javascript:void();" id="submitbutton" type="submit" form="settings-form" value="New Video" />
 			<br>
-
-			<p><a href="javascript:void();" id="getID">Get new ID</a></p>
 			
 
 		</div>
