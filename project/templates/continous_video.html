@@ -10,21 +10,8 @@ background-size: cover; background-position-y: center;">
 
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css' />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon" />
-
-  <script type=text/javascript>
-    $(function() {
-      $('a#getID').bind('click', function() {
-        $.getJSON('/get_video_id', {
-        }, function(data) {
-          $("#result").text(data.result);
-        });
-        return false;
-      });
-    });
-  </script>
 
 <script type="text/javascript">
     function FilterAlpha (event) {
@@ -51,17 +38,11 @@ background-size: cover; background-position-y: center;">
 <body class="home">
 	<div id="outer">
 		<div id="wrapper" style="background: none; margin-top:5%;">
-			<iframe  width="500" height="281"  src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
+			<iframe width="500" height="281" src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
 			<br />
-			<input id="submitbutton" type="submit" form="settings-form" value="New Video" />
-			<br/>
-
-			<span id="result">LoL</span>
-			<p><a href="javascript:void();" id="getID">Get new ID</a>
-			
-
+			<input id="submitbutton" type="submit" form="settings-form" value="ABORT" />
 		</div>
-		<div id ="options">
+		<!-- <div id ="options">
 			<p style="display: {{ opendisp }};">Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
 			<br />
 			<br />
@@ -75,8 +56,6 @@ background-size: cover; background-position-y: center;">
 			</div>
 			<hr />
 			<form id="settings-form" action="/video" method="POST">
-			    <input id="mode"  type="checkbox" value="mode" name="mode" {% if mode=="checked" %} checked{% endif %}>
-	    		    <label for="com">Continous Mode</label> <br />
 			    <label> View limit: <input type="text" autocomplete="off" name="limit" value="{{ limit }}" placeholder="Default: 50" onkeydown="return FilterAlpha (event)" /> </label>
 			    <br />
 			    <label> Search query: <input type="text" name="query" value="{{ query }}" autocomplete="off" placeholder="Default: Random Word" /> </label>
@@ -94,7 +73,7 @@ background-size: cover; background-position-y: center;">
 				    	<input id="aut" type="checkbox" value="Autos &amp; Vehicles" name="aut" {% if "Autos &amp; Vehicles" in category %} checked{% endif %}>
 				    		<label for="aut">Autos &amp; Vehicles</label> <br />
 
-				    	<input id="com"  type="checkbox" value="Comedy" 
+				    	<input id="aut"  type="checkbox" value="Comedy" 
 				    			name="com" {% if "Comedy" in category %} checked{% endif %}>
 				    		<label for="com">Comedy</label> <br />
 
@@ -151,7 +130,7 @@ background-size: cover; background-position-y: center;">
 			 	</fieldset>
 			 	</details>
 			</div>
-			</form>
+			</form> -->
 		</div>
 		<div id="footer" style=
 							"width: 30%; padding-left: 10px; 
