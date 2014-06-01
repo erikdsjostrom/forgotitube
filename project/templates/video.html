@@ -19,7 +19,7 @@ background-size: cover; background-position-y: center;">
       $('a#getID').bind('click', function() {
         $.getJSON('/get_video_id', {
         }, function(data) {
-          $("#result").text(data.result);
+          $("#iframe").attr('src', data.result);
         });
         return false;
       });
@@ -51,20 +51,19 @@ background-size: cover; background-position-y: center;">
 <body class="home">
 	<div id="outer">
 		<div id="wrapper" style="background: none; margin-top:5%;">
-			<iframe  width="500" height="281"  src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
-			<br />
+			<iframe  width="500" id="iframe" height="281"  src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
+			<br>
 			<input id="submitbutton" type="submit" form="settings-form" value="New Video" />
-			<br />
+			<br>
 
-			<span id="result">LoL</span>
 			<p><a href="javascript:void();" id="getID">Get new ID</a></p>
 			
 
 		</div>
 		<div id ="options">
 			<p style="display: {{ opendisp }};">Oops! The search timed out. Either try to raise the view limit or put some options to their default value.
-			<br />
-			<br />
+			<br>
+			<br>
 			Enjoy this cat video while you adjust the options.</p>
 			<div id="optheader">
 				<div class="opttitle">
@@ -76,9 +75,9 @@ background-size: cover; background-position-y: center;">
 			<hr />
 			<form id="settings-form" action="/video" method="POST">
 			    <input id="mode"  type="checkbox" value="mode" name="mode" {% if mode=="checked" %} checked{% endif %}>
-	    		    <label for="mode">Continuous Mode</label> <br />
+	    		    <label for="mode">Continuous Mode</label> <br>
 			    <label> View limit: <input type="text" autocomplete="off" name="limit" value="{{ limit }}" placeholder="Default: 50" onkeydown="return FilterAlpha (event)" /> </label>
-			    <br />
+			    <br>
 			    <label> Search query: <input type="text" name="query" value="{{ query }}" autocomplete="off" placeholder="Default: Random Word" /> </label>
 			
 			<div id ="advoptions">
@@ -86,67 +85,67 @@ background-size: cover; background-position-y: center;">
 			 	<summary>Advanced options <hr style="background:#c0c0c0; border:0; height:1px" /></summary>
 			 	<fieldset>
 				    <label> Duration upper limit (sec): <input type="text" value="{{ upduration }}" autocomplete="off" name="upduration" placeholder="Default: ∞" onkeydown="return FilterAlpha (event)" /> </label>
-				    <br />
+				    <br>
 				    <label> Duration lower limit (sec): <input type="text" value="{{ loduration }}" autocomplete="off" name="loduration" placeholder="Default: 0" onkeydown="return FilterAlpha (event)" /> </label>
-				    <br />
-				    Categories (will match any category if all is unchecked): <br />
+				    <br>
+				    Categories (will match any category if all is unchecked): <br>
 				    <div style="width: 49%; float: left;">
 				    	<input id="aut" type="checkbox" value="Autos &amp; Vehicles" name="aut" {% if "Autos &amp; Vehicles" in category %} checked{% endif %}>
-				    		<label for="aut">Autos &amp; Vehicles</label> <br />
+				    		<label for="aut">Autos &amp; Vehicles</label> <br>
 
 				    	<input id="com"  type="checkbox" value="Comedy" 
 				    			name="com" {% if "Comedy" in category %} checked{% endif %}>
-				    		<label for="com">Comedy</label> <br />
+				    		<label for="com">Comedy</label> <br>
 
 				    	<input id="edu"  type="checkbox" value="Education" 
 				    			name="edu" {% if "Education" in category %} checked{% endif %}>
-				    		<label for="edu">Education</label> <br />
+				    		<label for="edu">Education</label> <br>
 
 				    	<input id="ent" type="checkbox" value="Entertainment" 
 				    			name="ent" {% if "Entertainment" in category %} checked{% endif %}>
-				    		<label for="ent">Entertainment</label> <br />
+				    		<label for="ent">Entertainment</label> <br>
 
 				    	<input id="fil" type="checkbox" value="Film &amp; Animation" 
 				    			name="fil" {% if "Film &amp; Animation" in category %} checked{% endif %}>
-				    		<label for="fil">Film &amp; Animation</label> <br />
+				    		<label for="fil">Film &amp; Animation</label> <br>
 
 				    	<input id="how" type="checkbox" value="Howto &amp; Style" 
 				    			name="how" {% if "Howto &amp; Style" in category %} checked{% endif %}>
-				    		<label for="how">Howto &amp; Style</label> <br />
+				    		<label for="how">Howto &amp; Style</label> <br>
 
 				    	<input id="mus" type="checkbox" value="Music" 
 				    			name="mus" {% if "Music" in category %} checked{% endif %}>
-				    		<label for="mus">Music</label> <br />
+				    		<label for="mus">Music</label> <br>
 				    </div>
 
 				    <div style="width: 49%; float: right;">
 				    	<input id="new" type="checkbox" value="News &amp; Politics" 
 				    			name="new" {% if "News &amp; Politics" in category %} checked{% endif %}>
-				    		<label for="new">News &amp; Politics</label> <br />
+				    		<label for="new">News &amp; Politics</label> <br>
 
 				    	<input id="non" type="checkbox" value="Nonprofits &amp; Activism" 
 				    			name="non" {% if "Nonprofits &amp; Activism" in category %} checked{% endif %}>
-				    		<label for="non">Nonprofits &amp; Activism</label> <br />
+				    		<label for="non">Nonprofits &amp; Activism</label> <br>
 
 				    	<input id="peo" type="checkbox" value="People &amp; Blogs" 
 				    			name="peo" {% if "People &amp; Blogs" in category %} checked{% endif %}>
-				    		<label for="peo">People &amp; Blogs</label> <br />
+				    		<label for="peo">People &amp; Blogs</label> <br>
 
 				    	<input id="pet" type="checkbox" value="Pets &amp; Animals" 
 				    			name="pet" {% if "Pets &amp; Animals" in category %} checked{% endif %}>
-				    		<label for="pet">Pets &amp; Animals</label> <br />
+				    		<label for="pet">Pets &amp; Animals</label> <br>
 
 				    	<input id="sci" type="checkbox" value="Science &amp; Technology" 
 				    			name="sci" {% if "Science &amp; Technology" in category %} checked{% endif %}>
-				    		<label for="sci">Science &amp; Technology</label> <br />
+				    		<label for="sci">Science &amp; Technology</label> <br>
 
 				    	<input id="spo" type="checkbox" value="Sports" 
 				    			name="spo" {% if "Sports" in category %} checked{% endif %}>
-				    		<label for="spo">Sports</label> <br />
+				    		<label for="spo">Sports</label> <br>
 
 				    	<input id="tra" type="checkbox" value="Travel &amp; Events" 
 				    			name="tra" {% if "Travel &amp; Events" in category %} checked{% endif %}>
-				    		<label for="tra">Travel &amp; Events</label> <br />
+				    		<label for="tra">Travel &amp; Events</label> <br>
 				    </div> 
 			 	</fieldset>
 			 	</details>

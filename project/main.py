@@ -131,9 +131,10 @@ def get_video():
 def get_video_id():
 	user_data = ['', '', '', '', []]
 	videoID = get_new_video(user_data)
-	video_embed = "http://www.youtube.com/embed/" + videoID
-	print(video_embed)
-	return jsonify(result=video_embed)
+	video_code = "http://www.youtube.com/embed/" + videoID
+	# video_embed = '\"src\", \"' + video_code'\"'
+	# print(video_embed)
+	return jsonify(result=video_code)
 
 
 @app.route('/get_template')
