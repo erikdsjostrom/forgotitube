@@ -131,6 +131,7 @@ def get_video():
 def get_video_id():
 	user_data = ['', '', '', '', []]
 	videoID = get_new_video(user_data)
+	# videoID, user_data = get_video()
 	video_code = "http://www.youtube.com/embed/" + videoID
 	return jsonify(result=video_code)
 
