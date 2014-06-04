@@ -61,7 +61,7 @@ h2 {
 	background: rgba(16,16,16,0.5);
 }
 
-#wrapper input#submitbutton{
+#submitbutton{
 	cursor:pointer;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -81,9 +81,10 @@ h2 {
 	font-weight: 900;
 	padding: 15px 30px 15px 30px;
 	outline: none;
+	text-decoration: none;
 }
 
-#wrapper input#submitbutton:hover, input#submitbutton:focus {
+#submitbutton:hover, #submitbutton:focus {
 	background-image: -webkit-gradient(linear,left 0,left 100%,from(#B7241F),to(#8F0E12));
 	background-image: -webkit-linear-gradient(top,#B7241F,0%,#8F0E12,100%);
 	background-image: -moz-linear-gradient(top,#B7241F 0,#8F0E12 100%);

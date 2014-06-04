@@ -3,13 +3,20 @@
 
 from flask import Flask
 from flask import render_template
-from flask import request
-from flask import jsonify
+from flask import g
+import flask_sijax
+import os
 from get_new_video import get_new_video
 from rotate_background import rotate_background
 
+path = os.path.join('.', os.path.dirname(__file__), 'static/js/sijax/')
+
 app = Flask(__name__)
+app.config['SIJAX_STATIC_PATH'] = path
+app.config['SIJAX_JSON_URI'] = '/static/js/sijax/json2.js'
+flask_sijax.Sijax(app)
 global img
+global user_data
 img = '../static/img/3.jpg'
 
 
@@ -20,125 +27,76 @@ def index():
 	return render_template('index.html', img=img)
 
 
-@app.route('/video', methods=['POST', 'GET'])
+@flask_sijax.route(app, '/video')
 def video():
-	global img
-	user_data = ['', '', '', '', []]
-	if request.method == 'POST':
-		try:
-			# If continuous mode is turned on
-			mode = request.form['mode']
-			videoID, user_data = get_video()
-			if videoID == "Timeout":
-				videoID = "Kdgt1ZHkvnM?autoplay=1&iv_load_policy=3"
-				return render_template('video.html', id=videoID, img=img,
-															mode='checked',
-															limit=user_data[0],
-															query=user_data[1],
-															upduration=user_data[2],
-															loduration=user_data[3],
-															category=user_data[4],
-															opendisp="block")
-			else:
-				return render_template('video.html', id=videoID, img=img,
-															mode='checked',
-															limit=user_data[0],
-															query=user_data[1],
-															upduration=user_data[2],
-															loduration=user_data[3],
-															category=user_data[4],
-															opendisp="none")
-		except:
-			# If continous mode is turned off
-			videoID, user_data = get_video()
-			if videoID == "Timeout":
-				videoID = "Kdgt1ZHkvnM?autoplay=1&iv_load_policy=3"
-				return render_template('video.html', id=videoID, img=img,
-															mode='unchecked',
-															limit=user_data[0],
-															query=user_data[1],
-															upduration=user_data[2],
-															loduration=user_data[3],
-															category=user_data[4],
-															opendisp="block")
-			else:
-				return render_template('video.html', id=videoID, img=img,
-															mode='unchecked',
-															limit=user_data[0],
-															query=user_data[1],
-															upduration=user_data[2],
-															loduration=user_data[3],
-															category=user_data[4],
-															opendisp="none")
-	else:
-		user_data = ['', '', '', '', []]
-		videoID = get_new_video(user_data)  # GET Sparar tid om kommenterad
-		return render_template('video.html', id=videoID, img=img,
-													limit=user_data[0],
-													query=user_data[1],
-													upduration=user_data[2],
-													loduration=user_data[3],
-													category=user_data[4],
-													opendisp="none")
+	def get_categories(values):
+		categories = []
+		if 'aut' in values:
+			categories.append('Autos & Vehicles')
+		if 'com' in values:
+			categories.append('Comedy')
+		if 'edu' in values:
+			categories.append('People & Blogs')
+		if 'ent' in values:
+			categories.append('Autos & Vehicles')
+		if 'fil' in values:
+			categories.append('Film & Animation')
+		if 'how' in values:
+			categories.append('Howto & Style')
+		if 'mus' in values:
+			categories.append('Music')
+		if 'new' in values:
+			categories.append('News & Politics')
+		if 'non' in values:
+			categories.append('Nonprofits & Activism')
+		if 'peo' in values:
+			categories.append('People & Blogs')
+		if 'pet' in values:
+			categories.append('Pets & Animals')
+		if 'sci' in values:
+			categories.append('Science & Technology')
+		if 'spo' in values:
+			categories.append('Sports')
+		if 'tra' in values:
+			categories.append('Travel & Events')
+		return(categories)
 
-
-@app.route('/get_video')
-def get_video():
-	user_data = ['', '', '', '', []]
-	categories = ["aut", "com", "edu", "ent", "fil", "how", "mus",
-															"new",
-															"non",
-															"peo",
-															"pet",
-															"sci",
-															"spo",
-															"tra"]
-	# Perhaps a condition to skip all of this if user_input hasn't changed
-	limit = request.form['limit']
-	if limit:
-		user_data[0] = limit
-	else:
-		user_data[0] = ''
-	query = request.form['query']
-	if query:
-		user_data[1] = query
-	else:
-		user_data[1] = ''
-	upduration = request.form['upduration']
-	if upduration:
-		user_data[2] = upduration
-	else:
-		user_data[2] = ''
-	loduration = request.form['loduration']
-	if loduration:
-		user_data[3] = loduration
-	else:
-		user_data[3] = ''
-	category = []
-	for cat in categories:
-		try:
-			category.append(request.form[cat])
-		except Exception:
+	def process_form(obj_response, values):
+		# Add a check to see if user_data has actually changed...later
+		print(values)
+		limit = values['limit']
+		query = values['query']
+		upduration = values['upduration']
+		loduration = values['loduration']
+		if 'mode' in values:
+			#This is were something contititus should be done
 			pass
-	user_data[4] = category  # Default input: []. Otherwise list with strings
-	videoID = get_new_video(user_data)  # POST Sparar tid om kommenterad
-	for x, c in enumerate(user_data[4]):  # Replaces every &
-			user_data[4][x] = c.replace("&", "&amp;")
-	return(videoID, user_data)
+		if len(values) > 4:
+			categories = get_categories(values)
+		else:
+			categories = []
+		user_data = [limit, query, upduration, loduration, categories]
+		videoID = get_new_video(user_data)
+		if videoID == "Timeout":
+			print('Timeout')
+			videoID = 'Kdgt1ZHkvnM?autoplay=1&iv_load_policy=3'
+			video_code = "http://www.youtube.com/embed/" + videoID
+			obj_response.css('#timeout', 'display', 'block')
+			obj_response.attr('#iframe', 'src', video_code)
+		else:
+			video_code = "http://www.youtube.com/embed/" + videoID
+			obj_response.css('#timeout', 'display', 'none')
+			obj_response.attr('#iframe', 'src', video_code)
+	if g.sijax.is_sijax_request:
+		# Sijax request detected - let Sijax handle it
+		g.sijax.register_callback('process_form', process_form)
+		return g.sijax.process_request()
 
-
-@app.route('/get_video_id')
-def get_video_id():
+	# Regular (non-Sijax request) - render the page template
 	user_data = ['', '', '', '', []]
-	videoID = get_new_video(user_data)
-	# videoID, user_data = get_video()
-	video_code = "http://www.youtube.com/embed/" + videoID
-	return jsonify(result=video_code)
+	videoID = get_new_video(user_data)  # GET Sparar tid om kommenterad
+	return render_template('video.html', id=videoID, img=img)
 
-
-@app.route('/get_template')
-def get_template(videoID, user_data):
-	pass
 
 if __name__ == '__main__':
 	app.debug = True  # REMOVE THIS IN FINAL VERSION
