@@ -20,8 +20,9 @@ TODO
 - <del>New favicon</del>
 - <del>Share to social media (buttons)</del>
 - Randomize the text in `templates/index.html`
-- Continuous mode
+<del>- Continuous mode</del>
 - Fullscreen mode
+- Figure out a better way to check categories
 
 LICENSE
 -------

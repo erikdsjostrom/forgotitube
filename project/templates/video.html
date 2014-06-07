@@ -12,6 +12,7 @@ background-size: cover; background-position-y: center;">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css' />
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="swfobject.js"></script>
 <script type="text/javascript"
     src="/static/js/sijax/sijax.js"></script>
 <script type="text/javascript">
@@ -19,8 +20,8 @@ background-size: cover; background-position-y: center;">
 </script>
 <script type="text/javascript">
     function getValues() {
-        var values = Sijax.getFormValues('#settings-form');
-        Sijax.request('process_form', [values]);
+	var values = Sijax.getFormValues('#settings-form');
+	Sijax.request('process_form', [values]);
     }
 </script>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
@@ -46,12 +47,43 @@ background-size: cover; background-position-y: center;">
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+ <script>
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      var player;
+      function onYouTubeIframeAPIReady() {
+	player = new YT.Player('player', {
+		videoId: '',
+		events: {
+			'onReady': onPlayerReady,
+			'onStateChange': onPlayerStateChange
+			}
+		});
+	}
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+          //perhaps figure out a way to preload a new id while video is playing
+        }
+        else if(event.data == YT.PlayerState.ENDED) {
+        	getValues()
+        }
+      }
+    </script>
 </head>
 
 <body class="home">
 	<div id="outer">
 		<div id="wrapper" style="background: none; margin-top:5%;">
-			<iframe  width="500" id="iframe" height="281"  src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen></iframe>
+
+			<iframe id="player" type="text/html" width="640" height="390" 
+			src="http://www.youtube.com/embed/{{ id }}" frameborder="0" allowfullscreen>
+  			</iframe>
 			<br>
 			<br>
 			<a href="javascript://" onclick="getValues()" id='submitbutton'>New video</a>

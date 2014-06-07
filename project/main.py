@@ -16,8 +16,8 @@ app.config['SIJAX_STATIC_PATH'] = path
 app.config['SIJAX_JSON_URI'] = '/static/js/sijax/json2.js'
 flask_sijax.Sijax(app)
 global img
-global user_data
-img = '../static/img/3.jpg'
+# global user_data
+img = ''
 
 
 @app.route('/')
@@ -68,9 +68,6 @@ def video():
 		query = values['query']
 		upduration = values['upduration']
 		loduration = values['loduration']
-		if 'mode' in values:
-			#This is were something contititus should be done
-			pass
 		if len(values) > 4:
 			categories = get_categories(values)
 		else:
@@ -82,22 +79,31 @@ def video():
 			videoID = 'Kdgt1ZHkvnM?autoplay=1&iv_load_policy=3'
 			video_code = "http://www.youtube.com/embed/" + videoID
 			obj_response.css('#timeout', 'display', 'block')
-			obj_response.attr('#iframe', 'src', video_code)
+			obj_response.attr('#player', 'src', video_code)
+		elif 'mode' in values:
+			#This is were something contititus should be
+			print('contitios mode')
+			video_code = "http://www.youtube.com/embed/" + videoID + '?enablejsapi=1'
+			obj_response.css('#timeout', 'display', 'none')
+			obj_response.attr('#player', 'src', video_code)
 		else:
 			video_code = "http://www.youtube.com/embed/" + videoID
 			obj_response.css('#timeout', 'display', 'none')
-			obj_response.attr('#iframe', 'src', video_code)
+			obj_response.attr('#player', 'src', video_code)
 	if g.sijax.is_sijax_request:
 		# Sijax request detected - let Sijax handle it
 		g.sijax.register_callback('process_form', process_form)
 		return g.sijax.process_request()
 
 	# Regular (non-Sijax request) - render the page template
+	img = rotate_background()
 	user_data = ['', '', '', '', []]
 	videoID = get_new_video(user_data)  # GET Sparar tid om kommenterad
 	return render_template('video.html', id=videoID, img=img)
 
-
+@app.route('/test')
+def test():
+	return render_template('test.html')
 if __name__ == '__main__':
 	app.debug = True  # REMOVE THIS IN FINAL VERSION
 	app.run()
