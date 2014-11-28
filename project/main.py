@@ -30,6 +30,7 @@ def index():
 @flask_sijax.route(app, '/video')
 def video():
 	def get_categories(values):
+		#Förenkling med en for-loop som kollar all värden i "values" och sen använder dem som nycklar i en dic
 		categories = []
 		if 'aut' in values:
 			categories.append('Autos & Vehicles')
